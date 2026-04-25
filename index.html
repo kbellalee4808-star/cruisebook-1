@@ -207,11 +207,21 @@
   }
   .hero-title-ko{
     font-family:'GmarketSansMedium', var(--font-body);
-    font-size:clamp(20px, 4vw, 32px);
+    font-size:clamp(28px, 6.4vw, 56px);
     font-weight:700;
     color:var(--navy);
+    line-height:1.25;
+    letter-spacing:-0.025em;
+    margin-bottom:24px;
+    word-break:keep-all;
+  }
+  .hero-subtitle{
+    font-family:var(--font-body);
+    font-size:clamp(16px, 2.6vw, 20px);
+    font-weight:500;
+    color:var(--ink-soft);
     margin-bottom:36px;
-    letter-spacing:-0.02em;
+    letter-spacing:-0.01em;
   }
   .hero-desc{
     font-size:clamp(15px, 2.2vw, 18px);
@@ -259,6 +269,251 @@
   @keyframes scroll-line{
     0%,100%{opacity:0.4}
     50%{opacity:1}
+  }
+
+  /* ======================= METRO LINE (8 STEPS) ======================= */
+  .metro{
+    background:
+      radial-gradient(ellipse at top, rgba(135, 206, 235, 0.18), transparent 60%),
+      radial-gradient(ellipse at bottom, rgba(212, 169, 74, 0.10), transparent 55%),
+      linear-gradient(180deg, var(--ivory) 0%, var(--ivory-warm) 100%);
+    padding:90px 24px 110px;
+    position:relative;
+  }
+  .metro-inner{
+    max-width:680px;
+    margin:0 auto;
+  }
+  .metro-header{
+    text-align:center;
+    margin-bottom:60px;
+  }
+  .metro-overline{
+    font-family:var(--font-accent);
+    font-size:11px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+    font-weight:500;
+  }
+  .metro-title{
+    font-family:'GmarketSansMedium', var(--font-body);
+    font-size:clamp(24px, 5vw, 36px);
+    font-weight:700;
+    color:var(--navy);
+    letter-spacing:-0.02em;
+    line-height:1.3;
+  }
+  .metro-rail{
+    position:relative;
+    padding:8px 0;
+  }
+  .metro-rail::before{
+    content:'';
+    position:absolute;
+    left:38px;
+    top:50px;
+    bottom:50px;
+    width:5px;
+    background:linear-gradient(180deg,
+      var(--santorini) 0%,
+      var(--santorini-deep) 50%,
+      var(--santorini) 100%);
+    border-radius:3px;
+    z-index:0;
+  }
+  .metro-end-dot{
+    position:absolute;
+    left:31px;
+    width:19px;height:19px;
+    border-radius:50%;
+    background:var(--santorini-deep);
+    box-shadow:0 0 0 6px rgba(135, 206, 235, 0.22);
+    z-index:1;
+  }
+  .metro-end-dot.start{top:38px}
+  .metro-end-dot.end{bottom:38px}
+  .metro-station{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:11px 0;
+    text-decoration:none;
+    z-index:2;
+    cursor:pointer;
+    border:none;
+    background:none;
+    width:100%;
+    text-align:left;
+    font-family:inherit;
+  }
+  .metro-circle{
+    flex-shrink:0;
+    width:78px;height:78px;
+    border-radius:50%;
+    background:white;
+    border:5px solid var(--santorini-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);
+    font-size:32px;font-weight:700;
+    color:var(--navy);
+    position:relative;z-index:2;
+    box-shadow:0 6px 18px -6px rgba(27, 58, 92, 0.28);
+    transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .metro-station:hover .metro-circle,
+  .metro-station:focus-visible .metro-circle{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:white;
+    transform:scale(1.06);
+    box-shadow:0 10px 26px -6px rgba(212, 169, 74, 0.6);
+  }
+  .metro-card{
+    flex:1;
+    min-width:0;
+    background:white;
+    padding:18px 22px;
+    border-radius:14px;
+    border:1.5px solid var(--line);
+    box-shadow:0 2px 10px -3px rgba(27, 58, 92, 0.06);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    transition:all 0.25s ease;
+    min-height:60px;
+  }
+  .metro-station:hover .metro-card,
+  .metro-station:focus-visible .metro-card{
+    border-color:var(--gold);
+    background:var(--ivory);
+    box-shadow:0 8px 22px -6px rgba(27, 58, 92, 0.16);
+    transform:translateX(4px);
+  }
+  .metro-text{
+    flex:1;
+    min-width:0;
+  }
+  .metro-en{
+    font-family:var(--font-accent);
+    font-size:10.5px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:4px;
+    font-weight:500;
+  }
+  .metro-ko{
+    font-family:'GmarketSansMedium', var(--font-body);
+    font-size:18px;
+    font-weight:700;
+    color:var(--navy);
+    letter-spacing:-0.02em;
+  }
+  .metro-arrow{
+    color:var(--ink-muted);
+    font-size:20px;
+    flex-shrink:0;
+    transition:all 0.25s ease;
+  }
+  .metro-station:hover .metro-arrow,
+  .metro-station:focus-visible .metro-arrow{
+    color:var(--gold);
+    transform:translateX(4px);
+  }
+  .metro-station:focus-visible{
+    outline:none;
+  }
+  .metro-tip-row{
+    display:flex;
+    justify-content:center;
+    margin-top:50px;
+  }
+  .metro-tip-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:white;
+    color:var(--navy);
+    padding:12px 22px;
+    border-radius:999px;
+    border:1.5px solid var(--line);
+    text-decoration:none;
+    font-family:var(--font-body);
+    font-weight:600;font-size:13px;
+    cursor:pointer;
+    transition:all 0.2s ease;
+  }
+  .metro-tip-btn:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+    transform:translateY(-1px);
+  }
+  @media (max-width:520px){
+    .metro{padding:60px 16px 80px}
+    .metro-header{margin-bottom:44px}
+    .metro-rail::before{
+      left:30px;
+      top:42px;
+      bottom:42px;
+      width:4px;
+    }
+    .metro-end-dot{left:24px;width:16px;height:16px}
+    .metro-end-dot.start{top:32px}
+    .metro-end-dot.end{bottom:32px}
+    .metro-circle{
+      width:64px;height:64px;
+      border-width:4px;
+      font-size:25px;
+    }
+    .metro-card{
+      padding:13px 15px;
+      min-height:54px;
+    }
+    .metro-station{gap:14px;padding:9px 0}
+    .metro-ko{font-size:15.5px}
+    .metro-en{font-size:9.5px}
+    .metro-arrow{font-size:17px}
+  }
+  @media (max-width:360px){
+    .metro-rail::before{left:26px}
+    .metro-end-dot{left:21px}
+    .metro-circle{width:56px;height:56px;font-size:22px;border-width:4px}
+    .metro-ko{font-size:14.5px}
+  }
+
+  /* ======================= TOAST ======================= */
+  .metro-toast{
+    position:fixed;
+    bottom:32px;
+    left:50%;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--navy-deep);
+    color:white;
+    padding:13px 24px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    box-shadow:0 14px 36px -10px rgba(0,0,0,0.45);
+    opacity:0;
+    transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index:1000;
+    pointer-events:none;
+    max-width:calc(100vw - 32px);
+    text-align:center;
+  }
+  .metro-toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
+  @media (max-width:520px){
+    .metro-toast{
+      bottom:24px;
+      padding:11px 20px;
+      font-size:12.5px;
+    }
   }
 
   /* ======================= SECTION CONTAINER ======================= */
@@ -1132,7 +1387,7 @@
     <span class="topbar-back-arrow" aria-hidden="true">←</span>
     <div class="topbar-logo">in</div>
     <div>
-      <span class="topbar-title">Cruise Guide</span>
+      <span class="topbar-title">Cruise Club</span>
       <span class="topbar-title-sub">by Bella</span>
     </div>
   </a>
@@ -1146,16 +1401,15 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-overline">A Step by Step Guide</div>
-    <h1 class="hero-title">Your First <em>Cruise</em></h1>
-    <div class="hero-title-ko">크루즈 예약, 처음이어도 괜찮아요</div>
+    <div class="hero-overline">Your First Cruise</div>
+    <h1 class="hero-title-ko">크루즈 여행<br>상상이 일상이 되는 순간</h1>
+    <p class="hero-subtitle">덜어내고 즐거움만 남겼습니다.</p>
     <p class="hero-desc">
-      복잡해 보이는 크루즈 예약, 16단계로 정리했어요.<br>
-      스크롤만 따라오시면 됩니다.
+      단 10분, 당신의 첫 항해를 위한<br><strong>8단계 가이드</strong>
     </p>
     <div class="hero-meta">
       <span class="hero-meta-dot"></span>
-      <span class="hero-meta-text">16 STEPS · 약 10분 소요</span>
+      <span class="hero-meta-text">8 STEPS · 약 10분 소요</span>
     </div>
   </div>
   <div class="hero-scroll">
@@ -1164,1073 +1418,117 @@
   </div>
 </section>
 
-<!-- ============ STEPS ============ -->
+<!-- ============ METRO LINE (8 STEPS) ============ -->
 
-<div class="steps">
-
-<!-- ============== STEP 01 ============== -->
-
-<section class="step" id="step-01">
-  <div class="step-grid">
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">01</div>
-        <div class="step-label">
-          <div class="step-label-en">Dashboard</div>
-          <div class="step-label-ko">대시보드에서 시작</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        inCruises에 로그인하면 처음 만나는 화면이에요. 프로필 아래 <strong>"빠른 액세스"</strong> 영역에서 <strong>"크루즈 예약"</strong> 타일을 클릭하세요.
-      </p>
-      <div class="box box-info">
-        <div class="box-title">시작하기 전 확인</div>
-        <div class="box-body">
-          <ul>
-            <li>플랜 상태가 <strong>"자격 있음(Active)"</strong>인지 확인</li>
-            <li>자동결제 카드가 등록되어 있어야 예약 가능</li>
-          </ul>
-        </div>
-      </div>
+<section class="metro" id="metro">
+  <div class="metro-inner">
+    <div class="metro-header">
+      <div class="metro-overline">Step by Step</div>
+      <h2 class="metro-title">8단계로 떠나는<br>나의 첫 크루즈</h2>
     </div>
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-header">
-          <div class="mock-logo"><div class="mock-logo-icon">in</div>Cruises</div>
-          <div class="mock-nav"><span>여행</span><span>호텔</span><span>투어</span></div>
-          <div class="mock-profile">You</div>
-        </div>
-        <div class="mock-body">
-          <div class="dash-welcome">다시 오신 것을 환영합니다</div>
-          <div class="dash-card">
-            <div class="dash-avatar">OO</div>
-            <div class="dash-info">
-              <div class="dash-name">멤버 이름</div>
-              <div class="dash-plan">OOO Member · OOO Director</div>
-              <div class="dash-chip">자격 있음</div>
-            </div>
-          </div>
-          <div class="quick-label">빠른 액세스</div>
-          <div class="quick-grid">
-            <div class="quick-tile mock-click" style="position:relative">
-              <span class="mock-click-tag">CLICK</span>
-              <div class="quick-tile-icon" style="background:var(--gold)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zM3.95 19H4c1.6 0 3.02-.88 4-2 .98 1.12 2.4 2 4 2s3.02-.88 4-2c.98 1.12 2.4 2 4 2h.05l1.89-6.68c.08-.26.06-.54-.06-.78s-.34-.42-.6-.5L20 10.62V6c0-1.1-.9-2-2-2h-3V1H9v3H6c-1.1 0-2 .9-2 2v4.62l-1.29.42c-.26.08-.48.26-.6.5s-.15.52-.06.78L3.95 19zM6 6h12v3.97L12 8 6 9.97V6z"/></svg>
-              </div>
-              <div class="quick-tile-label">크루즈 예약</div>
-            </div>
-            <div class="quick-tile">
-              <div class="quick-tile-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--navy)"><path d="M19 3H5c-1.11 0-2 .89-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 16H5V5h14v14z"/><path d="M7 12h10v2H7z" fill="white"/></svg>
-              </div>
-              <div class="quick-tile-label">호텔 예약</div>
-            </div>
-            <div class="quick-tile">
-              <div class="quick-tile-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--navy)"><circle cx="12" cy="12" r="10"/><path d="M14.5 10.5l-4 1.5 1.5-4" fill="white"/></svg>
-              </div>
-              <div class="quick-tile-label">투어 예약</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 02 ============== -->
-
-<section class="step" id="step-02">
-  <div class="step-grid">
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-header">
-          <div class="mock-logo"><div class="mock-logo-icon">in</div>Cruises</div>
-          <div class="mock-nav"><span>여행</span><span>호텔</span><span>투어</span></div>
-          <div class="mock-profile">You</div>
-        </div>
-        <div class="mock-body" style="background:linear-gradient(180deg, var(--santorini) 0%, var(--santorini-deep) 40%, var(--ivory) 40%);padding-top:60px">
-          <div style="background:white;border-radius:14px;padding:22px;box-shadow:0 10px 30px -10px rgba(0,0,0,0.15)">
-            <form class="search-form">
-              <div class="form-row">
-                <label class="form-label"><span class="form-num">1</span>크루즈 목적지</label>
-                <div class="form-input">
-                  <span>All Destinations</span>
-                  <span class="form-input-icon">⌕</span>
-                </div>
-              </div>
-              <div class="form-row-split">
-                <div class="form-row">
-                  <label class="form-label"><span class="form-num">2</span>크루즈 선사</label>
-                  <div class="form-input">
-                    <span>모든 크루즈 선사</span>
-                    <span class="form-input-icon">⌄</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <label class="form-label"><span class="form-num">3</span>출발일</label>
-                  <div class="form-input">
-                    <span>출발일 선택</span>
-                    <span class="form-input-icon">▦</span>
-                  </div>
-                </div>
-              </div>
-              <div class="mock-click" style="position:relative;border-radius:10px">
-                <span class="mock-click-tag">CLICK</span>
-                <div class="form-submit">검색</div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">02</div>
-        <div class="step-label">
-          <div class="step-label-en">Search</div>
-          <div class="step-label-ko">세 가지만 정하면 시작</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        검색 조건은 단 세 가지. <strong>어디로 갈지, 어느 선사로, 언제</strong> 출발할지만 정하면 돼요. 정하지 못했다면 전부 "모두"로 두고 검색해도 됩니다.
-      </p>
-      <div class="box box-info">
-        <div class="box-title">TIP · 처음이라면 이렇게</div>
-        <div class="box-body">
-          <ul>
-            <li>목적지만 <strong>지중해</strong> 또는 <strong>카리브해</strong>로 지정</li>
-            <li>선사·출발일은 열어두고 전체 검색</li>
-            <li>결과에서 마음에 드는 상품 → 날짜 역산해서 결정</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 03 ============== -->
-
-<section class="step" id="step-03">
-  <div class="step-grid">
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">03</div>
-        <div class="step-label">
-          <div class="step-label-en">Destination</div>
-          <div class="step-label-ko">목적지 고르기</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        목적지를 누르면 펼쳐지는 드롭다운. 처음 보면 막막하죠. <strong>대륙별로 묶어서</strong> 생각하면 선택이 쉬워져요.
-      </p>
-      <div class="box box-info">
-        <div class="box-title">크루즈 인기 목적지</div>
-        <div class="box-body" style="font-size:13px">
-          지중해·카리브해·알래스카가 <strong>크루즈 3대 인기 지역</strong>이에요. 처음이라면 지중해를 가장 추천드려요 — 일정·항공편·접근성이 모두 좋아요.
-        </div>
-      </div>
-    </div>
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-body">
-          <div class="form-label" style="margin-bottom:10px"><span class="form-num">1</span>크루즈 목적지</div>
-          <div class="dropdown-trigger">
-            <span>All Destinations</span>
-            <span style="color:var(--gold)">▲</span>
-          </div>
-          <div class="dropdown-list">
-            <div class="dropdown-item">지중해</div>
-            <div class="dropdown-item">카리브해</div>
-            <div class="dropdown-item">알래스카</div>
-            <div class="dropdown-item">북유럽</div>
-            <div class="dropdown-item">아시아</div>
-            <div class="dropdown-item">호주/뉴질랜드</div>
-          </div>
-          <div class="quick-label" style="margin-top:20px">인기 지역</div>
-          <div class="continent-grid">
-            <div class="continent-tile">
-              <div class="continent-dot" style="background:#E53935"></div>
-              <div class="continent-info">
-                <div class="continent-name">지중해</div>
-                <div class="continent-cities">로마 · 바르셀로나 · 그리스</div>
-              </div>
-            </div>
-            <div class="continent-tile">
-              <div class="continent-dot" style="background:#039BE5"></div>
-              <div class="continent-info">
-                <div class="continent-name">카리브해</div>
-                <div class="continent-cities">마이애미 · 바하마 · 자메이카</div>
-              </div>
-            </div>
-            <div class="continent-tile">
-              <div class="continent-dot" style="background:#00897B"></div>
-              <div class="continent-info">
-                <div class="continent-name">알래스카</div>
-                <div class="continent-cities">시애틀 · 밴쿠버</div>
-              </div>
-            </div>
-            <div class="continent-tile">
-              <div class="continent-dot" style="background:#8E24AA"></div>
-              <div class="continent-info">
-                <div class="continent-name">북유럽</div>
-                <div class="continent-cities">런던 · 노르웨이 · 덴마크</div>
-              </div>
-            </div>
-            <div class="continent-tile">
-              <div class="continent-dot" style="background:#FB8C00"></div>
-              <div class="continent-info">
-                <div class="continent-name">아시아</div>
-                <div class="continent-cities">일본 · 대만</div>
-              </div>
-            </div>
-            <div class="continent-tile">
-              <div class="continent-dot" style="background:#43A047"></div>
-              <div class="continent-info">
-                <div class="continent-name">호주/뉴질랜드</div>
-                <div class="continent-cities">시드니 · 오클랜드</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 04 ============== -->
-
-<section class="step" id="step-04">
-  <div class="step-grid">
-    <div class="step-visual">
-      <div class="product-card">
-        <div class="product-image">
-          <svg class="product-ship-icon" viewBox="0 0 24 24" fill="currentColor" width="100" height="100">
-            <path d="M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zM3.95 19H4c1.6 0 3.02-.88 4-2 .98 1.12 2.4 2 4 2s3.02-.88 4-2c.98 1.12 2.4 2 4 2h.05l1.89-6.68c.08-.26.06-.54-.06-.78s-.34-.42-.6-.5L20 10.62V6c0-1.1-.9-2-2-2h-3V1H9v3H6c-1.1 0-2 .9-2 2v4.62l-1.29.42c-.26.08-.48.26-.6.5s-.15.52-.06.78L3.95 19zM6 6h12v3.97L12 8 6 9.97V6z"/>
-          </svg>
-          <div class="product-heart">♡</div>
-          <div class="product-rating">★★★★<span class="empty">★</span></div>
-        </div>
-        <div class="product-body">
-          <div class="product-line">OOO Cruises</div>
-          <div class="product-title">OOO Mediterranean Route</div>
-          <div class="product-meta">
-            <div class="product-meta-row"><span class="product-meta-icon">⛴</span>OOO 선박</div>
-            <div class="product-meta-row"><span class="product-meta-icon">◉</span>출발지 · 도착지</div>
-            <div class="product-meta-row"><span class="product-meta-icon">☾</span>O박</div>
-            <div class="product-meta-row"><span class="product-meta-icon">▦</span>YYYY-MM-DD → YYYY-MM-DD</div>
-          </div>
-          <div class="product-price">
-            <span class="product-price-label">예)</span>
-            <span class="product-price-amount">$900</span>
-            <span class="product-price-unit">/인당</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">04</div>
-        <div class="step-label">
-          <div class="step-label-en">Browse</div>
-          <div class="step-label-ko">상품 고르는 법</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        검색 결과에 나오는 각 카드가 <strong>하나의 크루즈 상품</strong>이에요. 마음에 드는 카드를 클릭하면 상세 페이지로 이동합니다.
-      </p>
-      <div class="box box-info">
-        <div class="box-title">카드에서 체크할 5가지</div>
-        <div class="box-body">
-          <ul>
-            <li><strong>별점</strong> — 선사·선박 등급 (4개 이상 추천)</li>
-            <li><strong>선박명</strong> — 크기·시설 정보 알려줘요</li>
-            <li><strong>출발·도착 항구</strong> — 항공편 접근성 고려</li>
-            <li><strong>O박</strong> — 일정 길이 (7박이 일반적)</li>
-            <li><strong>예) $900/인당</strong> — 2인 기준 1인 최저가 (캐빈 $1,800 ÷ 2인)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 05 ============== -->
-
-<section class="step" id="step-05">
-  <div class="step-grid">
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">05</div>
-        <div class="step-label">
-          <div class="step-label-en">Cabin Class</div>
-          <div class="step-label-ko">객실 등급 이해하기</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        크루즈 객실은 네 등급으로 나뉘어요. 등급에 따라 <strong>가격 차이가 2배 이상</strong>. 예산과 선호에 맞춰 골라보세요.
-      </p>
-      <div class="box box-warn">
-        <div class="box-title"><span class="badge">BEST</span> 발코니 추천</div>
-        <div class="box-body">
-          바다를 보며 커피 한 잔, 일출·일몰을 전용 공간에서 즐길 수 있어요. 크루즈의 낭만은 발코니에서 완성됩니다.
-        </div>
-      </div>
-      <div class="box box-info">
-        <div class="box-title">초저가 팁</div>
-        <div class="box-body">
-          창문 없어도 괜찮다면 <strong>인사이드</strong>가 가장 저렴. 객실은 잠만 자고, 바다는 갑판에서 보면 됩니다.
-        </div>
-      </div>
-    </div>
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-body">
-          <div class="quick-label">객실 등급 · 2인 캐빈 기준</div>
-          <div class="cabin-grid">
-            <div class="cabin-tile">
-              <div class="cabin-rank">Level 1</div>
-              <div class="cabin-name">Inside</div>
-              <div class="cabin-desc">창문 없음 · 가장 저렴</div>
-              <div class="cabin-price"><span class="cabin-price-from">예)</span>$1,800</div>
-            </div>
-            <div class="cabin-tile">
-              <div class="cabin-rank">Level 2</div>
-              <div class="cabin-name">Oceanview</div>
-              <div class="cabin-desc">창문 있음 · 바다 감상</div>
-              <div class="cabin-price"><span class="cabin-price-from">예)</span>$1,800</div>
-            </div>
-            <div class="cabin-tile featured">
-              <div class="cabin-rank">Level 3 · Best</div>
-              <div class="cabin-name">Balcony</div>
-              <div class="cabin-desc">전용 발코니 · 인기</div>
-              <div class="cabin-price"><span class="cabin-price-from">예)</span>$1,800</div>
-            </div>
-            <div class="cabin-tile">
-              <div class="cabin-rank">Level 4</div>
-              <div class="cabin-name">Suite</div>
-              <div class="cabin-desc">최상위 · 우선 하선</div>
-              <div class="cabin-price"><span class="cabin-price-from">예)</span>$1,800</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 06 ============== -->
-
-<section class="step" id="step-06">
-  <div class="step-grid">
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-body">
-          <div class="quick-label">항로 지도</div>
-          <div class="map-wrap">
-            <svg class="map-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="wavePat" x="0" y="0" width="20" height="14" patternUnits="userSpaceOnUse">
-                  <path d="M0 7 Q5 3 10 7 T20 7" fill="none" stroke="#5BA8C7" stroke-width="0.5" opacity="0.25"/>
-                </pattern>
-              </defs>
-              <rect width="400" height="300" fill="url(#wavePat)"/>
-              <!-- landmass (stylized) -->
-              <path d="M 20 80 Q 60 60 100 90 L 140 70 L 180 100 L 160 140 L 100 150 Z" fill="#F4E7C1" opacity="0.6" stroke="#D4A94A" stroke-width="1"/>
-              <path d="M 200 180 Q 250 160 300 180 L 340 200 L 320 230 L 240 240 L 200 220 Z" fill="#F4E7C1" opacity="0.6" stroke="#D4A94A" stroke-width="1"/>
-              <path d="M 280 50 L 330 40 L 370 70 L 360 100 L 310 110 L 280 90 Z" fill="#F4E7C1" opacity="0.6" stroke="#D4A94A" stroke-width="1"/>
-              <!-- route -->
-              <path d="M 100 130 Q 180 80, 240 120 Q 310 150, 340 90 Q 290 200, 250 220 Q 150 220, 100 130"
-                    fill="none" stroke="#D4A94A" stroke-width="2.5" stroke-dasharray="6 4"
-                    stroke-linecap="round">
-                <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.5s" repeatCount="indefinite"/>
-              </path>
-              <!-- ports -->
-              <g font-family="'Cormorant Garamond', serif" font-size="11" fill="#1B3A5C" font-weight="600">
-                <circle cx="100" cy="130" r="6" fill="#1B3A5C"/>
-                <circle cx="100" cy="130" r="3" fill="#D4A94A"/>
-                <text x="110" y="128">1. 출발지</text>
 
 ```
-            <circle cx="240" cy="120" r="5" fill="#1B3A5C"/>
-            <text x="220" y="108">2. 기항 A</text>
+<div class="metro-rail">
+  <span class="metro-end-dot start" aria-hidden="true"></span>
 
-            <circle cx="340" cy="90" r="5" fill="#1B3A5C"/>
-            <text x="290" y="80">3. 기항 B</text>
-
-            <circle cx="310" cy="180" r="5" fill="#1B3A5C"/>
-            <text x="315" y="180">4. 기항 C</text>
-
-            <circle cx="250" cy="220" r="5" fill="#1B3A5C"/>
-            <text x="260" y="235">5. 도착지</text>
-          </g>
-        </svg>
+  <button class="metro-station" data-step="1" aria-label="1단계: 크루즈예약">
+    <div class="metro-circle">1</div>
+    <div class="metro-card">
+      <div class="metro-text">
+        <div class="metro-en">Booking</div>
+        <div class="metro-ko">크루즈예약</div>
       </div>
+      <span class="metro-arrow" aria-hidden="true">→</span>
     </div>
-  </div>
+  </button>
+
+  <button class="metro-station" data-step="2" aria-label="2단계: 목적지">
+    <div class="metro-circle">2</div>
+    <div class="metro-card">
+      <div class="metro-text">
+        <div class="metro-en">Destination</div>
+        <div class="metro-ko">목적지</div>
+      </div>
+      <span class="metro-arrow" aria-hidden="true">→</span>
+    </div>
+  </button>
+
+  <button class="metro-station" data-step="3" aria-label="3단계: 크루즈선택">
+    <div class="metro-circle">3</div>
+    <div class="metro-card">
+      <div class="metro-text">
+        <div class="metro-en">Cruise</div>
+        <div class="metro-ko">크루즈선택</div>
+      </div>
+      <span class="metro-arrow" aria-hidden="true">→</span>
+    </div>
+  </button>
+
+  <button class="metro-station" data-step="4" aria-label="4단계: 객실선택">
+    <div class="metro-circle">4</div>
+    <div class="metro-card">
+      <div class="metro-text">
+        <div class="metro-en">Cabin</div>
+        <div class="metro-ko">객실선택</div>
+      </div>
+      <span class="metro-arrow" aria-hidden="true">→</span>
+    </div>
+  </button>
+
+  <button class="metro-station" data-step="5" aria-label="5단계: 리워드할인">
+    <div class="metro-circle">5</div>
+    <div class="metro-card">
+      <div class="metro-text">
+        <div class="metro-en">Rewards</div>
+        <div class="metro-ko">리워드할인</div>
+      </div>
+      <span class="metro-arrow" aria-hidden="true">→</span>
+    </div>
+  </button>
+
+  <button class="metro-station" data-step="6" aria-label="6단계: 승객입력">
+    <div class="metro-circle">6</div>
+    <div class="metro-card">
+      <div class="metro-text">
+        <div class="metro-en">Passengers</div>
+        <div class="metro-ko">승객입력</div>
+      </div>
+      <span class="metro-arrow" aria-hidden="true">→</span>
+    </div>
+  </button>
+
+  <button class="metro-station" data-step="7" aria-label="7단계: 규정확인">
+    <div class="metro-circle">7</div>
+    <div class="metro-card">
+      <div class="metro-text">
+        <div class="metro-en">Terms</div>
+        <div class="metro-ko">규정확인</div>
+      </div>
+      <span class="metro-arrow" aria-hidden="true">→</span>
+    </div>
+  </button>
+
+  <button class="metro-station" data-step="8" aria-label="8단계: 결제완료">
+    <div class="metro-circle">8</div>
+    <div class="metro-card">
+      <div class="metro-text">
+        <div class="metro-en">Payment</div>
+        <div class="metro-ko">결제완료</div>
+      </div>
+      <span class="metro-arrow" aria-hidden="true">→</span>
+    </div>
+  </button>
+
+  <span class="metro-end-dot end" aria-hidden="true"></span>
 </div>
-<div class="step-copy">
-  <div class="step-header">
-    <div class="step-num">06</div>
-    <div class="step-label">
-      <div class="step-label-en">Route Map</div>
-      <div class="step-label-ko">항로 한눈에 보기</div>
-    </div>
-  </div>
-  <p class="step-desc">
-    크루즈는 <strong>여러 항구를 순서대로 방문</strong>해요. 지도에서 대략적인 동선과 거리를 확인할 수 있어요.
-  </p>
-  <div class="box box-info">
-    <div class="box-title">지도에서 확인할 것</div>
-    <div class="box-body">
-      <ul>
-        <li>각 항구 <strong>번호 순서</strong>대로 정박 (1 → 2 → 3…)</li>
-        <li>정박지마다 <strong>1일 관광</strong> 가능</li>
-        <li>현지 <strong>사전 투어 예약</strong>이 효율적</li>
-      </ul>
-    </div>
-  </div>
+
+<div class="metro-tip-row">
+  <button class="metro-tip-btn" id="metro-tip-btn">📌 추가 안내사항</button>
 </div>
 ```
 
   </div>
 </section>
-
-<!-- ============== STEP 07 ============== -->
-
-<section class="step" id="step-07">
-  <div class="step-grid">
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">07</div>
-        <div class="step-label">
-          <div class="step-label-en">Itinerary</div>
-          <div class="step-label-ko">일정표 꼼꼼히</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        항구마다 <strong>도착·출발 시간</strong>이 정해져 있어요. 이 시간을 놓치면 <strong>배는 기다려주지 않아요.</strong>
-      </p>
-      <div class="box box-warn">
-        <div class="box-title"><span class="badge">IMPORTANT</span> 승선일 (첫날)</div>
-        <div class="box-body">
-          <ul>
-            <li>"도착 시간" 말고 <strong>"출발 시간" 기준</strong>으로 계산</li>
-            <li>출발 <strong>2시간 전까지 탑승</strong> 필수 (공항처럼 출국 절차 있음)</li>
-            <li>가능하면 전날·2~3일 전 현지 도착 → 관광 후 탑승</li>
-          </ul>
-        </div>
-      </div>
-      <div class="box box-alert">
-        <div class="box-title"><span class="badge">CAUTION</span> 하선일 (마지막날)</div>
-        <div class="box-body">
-          <ul>
-            <li>도착 시간에 <strong>바로 내릴 수 없을 수도</strong> 있어요</li>
-            <li>스위트룸이 먼저, 이후 일반 객실 순차 하선</li>
-            <li><strong>저녁 비행기로 예약</strong>하는 게 안전해요</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-body">
-          <div class="quick-label">항구별 일정 · 예시</div>
-          <div class="schedule">
-            <div class="schedule-row header">
-              <span class="schedule-day">Day</span>
-              <span>Port</span>
-              <span>Arr/Dep</span>
-            </div>
-            <div class="schedule-row">
-              <span class="schedule-day">1</span>
-              <div>
-                <div class="schedule-port">출발지 항구</div>
-              </div>
-              <div>
-                <div class="schedule-time-row"><span>출발</span><span>PM X:XX</span></div>
-              </div>
-            </div>
-            <div class="schedule-row">
-              <span class="schedule-day">2</span>
-              <div>
-                <div class="schedule-port">기항 A</div>
-              </div>
-              <div>
-                <div class="schedule-time-row"><span>도착</span><span>AM X:XX</span></div>
-                <div class="schedule-time-row"><span>출발</span><span>PM X:XX</span></div>
-              </div>
-            </div>
-            <div class="schedule-row">
-              <span class="schedule-day">3</span>
-              <div>
-                <div class="schedule-port">해상일 (Fun Day at Sea)</div>
-              </div>
-              <div>
-                <div class="schedule-time-row" style="color:var(--ink-muted)"><span>항해중</span></div>
-              </div>
-            </div>
-            <div class="schedule-row">
-              <span class="schedule-day">4</span>
-              <div>
-                <div class="schedule-port">기항 B</div>
-              </div>
-              <div>
-                <div class="schedule-time-row"><span>도착</span><span>AM X:XX</span></div>
-                <div class="schedule-time-row"><span>출발</span><span>PM X:XX</span></div>
-              </div>
-            </div>
-            <div class="schedule-row">
-              <span class="schedule-day">5</span>
-              <div>
-                <div class="schedule-port">기항 C</div>
-              </div>
-              <div>
-                <div class="schedule-time-row"><span>도착</span><span>AM X:XX</span></div>
-                <div class="schedule-time-row"><span>출발</span><span>PM X:XX</span></div>
-              </div>
-            </div>
-            <div class="schedule-row">
-              <span class="schedule-day">6</span>
-              <div>
-                <div class="schedule-port">도착지 항구</div>
-              </div>
-              <div>
-                <div class="schedule-time-row"><span>도착</span><span>AM X:XX</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 08 ============== -->
-
-<section class="step" id="step-08">
-  <div class="step-grid">
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-body">
-          <div class="quick-label">선박 정보</div>
-          <div style="background:var(--ivory);padding:24px;border-radius:14px">
-            <div style="font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--navy);margin-bottom:6px">OOO 선박명</div>
-            <div style="font-size:12px;color:var(--ink-muted);margin-bottom:20px">건조년도 · YYYY년</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px">
-              <div><div style="font-size:11px;color:var(--ink-muted);margin-bottom:4px">TONNAGE</div><div style="font-weight:700;color:var(--navy)">약 XXX,XXX톤</div></div>
-              <div><div style="font-size:11px;color:var(--ink-muted);margin-bottom:4px">CAPACITY</div><div style="font-weight:700;color:var(--navy)">승객 약 X,XXX명</div></div>
-              <div><div style="font-size:11px;color:var(--ink-muted);margin-bottom:4px">LENGTH</div><div style="font-weight:700;color:var(--navy)">약 XXXm</div></div>
-              <div><div style="font-size:11px;color:var(--ink-muted);margin-bottom:4px">DECKS</div><div style="font-weight:700;color:var(--navy)">XX개</div></div>
-            </div>
-            <div style="font-size:12px;color:var(--ink-soft);line-height:1.7;padding-top:14px;border-top:1px solid var(--line)">
-              OOO 선박에 대한 간략한 소개와 특징이 표시되는 영역입니다. 수영장·식당·엔터테인먼트 등 선내 시설 정보를 확인하세요.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">08</div>
-        <div class="step-label">
-          <div class="step-label-en">Ship</div>
-          <div class="step-label-ko">선박 확인하기</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        선박마다 <strong>크기·시설·분위기</strong>가 달라요. 가족용 대형선부터 성인 전용 럭셔리까지 종류가 다양해요.
-      </p>
-      <div class="box box-warn">
-        <div class="box-title">선박은 변경될 수 있어요</div>
-        <div class="box-body">
-          선사 사정으로 선박이 바뀔 수 있어요. 예약 전 <strong>최신 정보를 지원요청 또는 AI(ChatGPT·Gemini)로 확인</strong>해보세요.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 09 ============== -->
-
-<section class="step" id="step-09">
-  <div class="step-grid">
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">09</div>
-        <div class="step-label">
-          <div class="step-label-en">Advance Notice</div>
-          <div class="step-label-ko">출발 90일 이내라면?</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        출발일까지 <strong>90일 이내</strong>로 남은 일정을 예약할 때는 특별 규칙이 적용돼요. 꼭 확인하세요.
-      </p>
-      <div class="box box-alert">
-        <div class="box-title">핵심</div>
-        <div class="box-body">
-          "50% 리워드 포인트 + 50% 결제"로 예약 시,<br>
-          <strong>남은 멤버십 청구서를 미리 결제</strong>해야 해요.
-        </div>
-      </div>
-    </div>
-    <div class="step-visual">
-      <div class="alert-box">
-        <div class="alert-tag">Important</div>
-        <div class="alert-headline">지금 예약하고,<br>곧 여정을 시작하세요</div>
-        <div style="font-size:13px;color:var(--ink-soft);line-height:1.7">
-          이 일정은 <strong>90일 이내 출발</strong>이에요. 현재 예약 가능하지만 <strong>50% 포인트 + 50% 결제</strong>를 선택하면 남은 청구서를 선결제해야 합니다.
-        </div>
-        <div class="alert-cards">
-          <div class="alert-card">
-            <div class="alert-card-days">60–89일 전</div>
-            <div class="alert-card-text">청구서 <strong>1건</strong> 선결제</div>
-          </div>
-          <div class="alert-card">
-            <div class="alert-card-days">30–59일 전</div>
-            <div class="alert-card-text">청구서 <strong>2건</strong> 선결제</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 10 ============== -->
-
-<section class="step" id="step-10">
-  <div class="step-grid">
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-body">
-          <div class="quick-label">8 중 1단계 · 승객 확인</div>
-          <div style="height:6px;background:var(--ivory);border-radius:3px;margin-bottom:20px;overflow:hidden">
-            <div style="width:12.5%;height:100%;background:var(--gold);border-radius:3px"></div>
-          </div>
-          <div style="margin-bottom:12px">
-            <div class="stepper-row">
-              <div>
-                <div class="stepper-label">성인</div>
-                <div class="stepper-sub">18세 – 54세</div>
-              </div>
-              <div class="stepper-control">
-                <button class="stepper-btn">−</button>
-                <span class="stepper-count">2</span>
-                <button class="stepper-btn">+</button>
-              </div>
-            </div>
-            <div class="stepper-row">
-              <div>
-                <div class="stepper-label">어린이</div>
-                <div class="stepper-sub">0세 – 17세</div>
-              </div>
-              <div class="stepper-control">
-                <button class="stepper-btn">−</button>
-                <span class="stepper-count">0</span>
-                <button class="stepper-btn">+</button>
-              </div>
-            </div>
-            <div class="stepper-row">
-              <div>
-                <div class="stepper-label">고령자</div>
-                <div class="stepper-sub">55세 이상</div>
-              </div>
-              <div class="stepper-control">
-                <button class="stepper-btn">−</button>
-                <span class="stepper-count">0</span>
-                <button class="stepper-btn">+</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">10</div>
-        <div class="step-label">
-          <div class="step-label-en">Passengers</div>
-          <div class="step-label-ko">승객 수 입력</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        예약을 시작하면 처음 만나는 화면. <strong>성인·어린이·고령자</strong> 수를 정확히 입력하세요.
-      </p>
-      <div class="box box-info">
-        <div class="box-title">연령 기준</div>
-        <div class="box-body">
-          <ul>
-            <li><strong>성인</strong> 18–54세</li>
-            <li><strong>어린이</strong> 0–17세</li>
-            <li><strong>고령자</strong> 55세 이상 (할인 혜택 있음)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 11 ============== -->
-
-<section class="step" id="step-11">
-  <div class="step-grid">
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">11</div>
-        <div class="step-label">
-          <div class="step-label-en">Fare Option</div>
-          <div class="step-label-ko">요금제 선택</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        같은 객실이라도 <strong>포함된 서비스</strong>에 따라 요금이 달라져요. 음료·팁이 포함된 옵션이 편해요.
-      </p>
-      <div class="box box-warn">
-        <div class="box-title"><span class="badge">RECOMMEND</span> 팁 포함 요금제</div>
-        <div class="box-body">
-          크루즈는 <strong>매일 팁</strong>이 부과돼요. 포함 요금제를 고르면 선상에서 따로 결제하지 않아도 되고, 달러 환전 걱정도 없어요.
-        </div>
-      </div>
-    </div>
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-body">
-          <div class="quick-label">요금제 · OOO Balcony 객실</div>
-          <div class="fare-card">
-            <div class="fare-left">
-              <div class="fare-title">Exclusive Cruise Only</div>
-              <div class="fare-sub">기본 · 팁·음료 별도</div>
-            </div>
-            <div class="fare-price">예) $1,800</div>
-          </div>
-          <div class="fare-card">
-            <div class="fare-left">
-              <div class="fare-title">+ Drinks</div>
-              <div class="fare-sub">음료 패키지 포함</div>
-            </div>
-            <div class="fare-price">예) $1,800</div>
-          </div>
-          <div class="fare-card">
-            <div class="fare-left">
-              <div class="fare-title">+ Gratuities</div>
-              <div class="fare-sub">팁 포함</div>
-            </div>
-            <div class="fare-price">예) $1,800</div>
-          </div>
-          <div class="fare-card featured">
-            <div class="fare-left">
-              <div class="fare-title">+ Drinks, Gratuities <span class="badge" style="font-size:9px;padding:2px 6px">BEST</span></div>
-              <div class="fare-sub">음료 + 팁 모두 포함</div>
-            </div>
-            <div class="fare-price">예) $1,800</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 12 ============== -->
-
-<section class="step" id="step-12">
-  <div class="step-grid">
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-body">
-          <div class="quick-label">예약 유형 · 어떻게 결제?</div>
-          <div class="type-grid">
-            <div class="type-card featured">
-              <div class="type-label">INsider Pricing</div>
-              <div class="type-price">예) $1,800</div>
-              <div class="type-note">멤버 할인가 · 가장 저렴</div>
-            </div>
-            <div class="type-card">
-              <div class="type-label">Reward Points</div>
-              <div class="type-price">예) 200 RP + $900</div>
-              <div class="type-note">포인트 사용</div>
-            </div>
-            <div class="type-card">
-              <div class="type-label">Retail</div>
-              <div class="type-price">예) $1,800</div>
-              <div class="type-note">비멤버 정가</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">12</div>
-        <div class="step-label">
-          <div class="step-label-en">Booking Type</div>
-          <div class="step-label-ko">예약 유형 고르기</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        세 가지 중 선택. <strong>INsider Pricing</strong>이 가장 저렴한 멤버 전용 할인가예요.
-      </p>
-      <div class="box box-ok">
-        <div class="box-title"><span class="badge" style="background:var(--ok-border)">BEST</span> INsider Pricing 추천</div>
-        <div class="box-body">
-          현금 결제 금액이 가장 낮고, 포인트는 <strong>다음 여행에 아껴두기</strong>가 좋아요.
-        </div>
-      </div>
-      <div class="box box-info">
-        <div class="box-title">포인트 쓰고 싶다면</div>
-        <div class="box-body">
-          Reward Points를 선택하면 <strong>최대 50%</strong>까지 포인트로 결제 가능. 본인 부담금은 INsider와 비슷해요.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 13 ============== -->
-
-<section class="step" id="step-13">
-  <div class="step-grid">
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">13</div>
-        <div class="step-label">
-          <div class="step-label-en">Traveler Info</div>
-          <div class="step-label-ko">승객 정보 입력</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        모든 승객의 <strong>여권 정보를 그대로</strong> 입력해요. 이 단계에서 입력한 정보는 <strong>변경이 거의 불가능</strong>합니다.
-      </p>
-      <div class="box box-alert">
-        <div class="box-title"><span class="badge" style="background:var(--alert-border)">CRITICAL</span> 여권과 동일하게!</div>
-        <div class="box-body">
-          <ul>
-            <li>이름·성 → <strong>여권 영문 그대로</strong> (오타 금지)</li>
-            <li>생년월일 → 여권과 1:1 일치</li>
-            <li>오타 있으면 <strong>재예약</strong>해야 할 수 있어요</li>
-            <li>이메일은 예약 확인이 오니까 실제 수신 가능한 주소로</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-body">
-          <div class="quick-label">주요 승객 · 성인</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-            <div class="form-field">
-              <label class="form-field-label">이름 (First Name)</label>
-              <div class="form-field-input">GILDONG</div>
-            </div>
-            <div class="form-field">
-              <label class="form-field-label">성 (Last Name)</label>
-              <div class="form-field-input">HONG</div>
-            </div>
-            <div class="form-field">
-              <label class="form-field-label">성별</label>
-              <div class="form-field-input">남성 · 여성</div>
-            </div>
-            <div class="form-field">
-              <label class="form-field-label">생년월일</label>
-              <div class="form-field-input">YYYY-MM-DD</div>
-            </div>
-            <div class="form-field">
-              <label class="form-field-label">국적</label>
-              <div class="form-field-input">Korea, Republic of</div>
-            </div>
-            <div class="form-field">
-              <label class="form-field-label">전화번호</label>
-              <div class="form-field-input">+82 · OOO-OOOO-OOOO</div>
-            </div>
-            <div class="form-field" style="grid-column:span 2">
-              <label class="form-field-label">이메일</label>
-              <div class="form-field-input">you@example.com</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 14 ============== -->
-
-<section class="step" id="step-14">
-  <div class="step-grid">
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-body">
-          <div class="quick-label">환불 보호 · 가입 여부</div>
-          <div class="protect-card off">
-            <div class="protect-check"></div>
-            <div class="protect-body">
-              <div class="protect-title">자기 부담금 보호</div>
-              <div class="protect-desc">사유 있을 때 본인 부담금 100% 환불. 증빙 필요.</div>
-            </div>
-            <div class="protect-price">+$XXX</div>
-          </div>
-          <div class="protect-card off">
-            <div class="protect-check"></div>
-            <div class="protect-body">
-              <div class="protect-title">리워드 포인트 보호</div>
-              <div class="protect-desc">사용한 포인트 환불 옵션.</div>
-            </div>
-            <div class="protect-price">+$XX</div>
-          </div>
-          <div style="padding:14px;background:var(--alert-bg);border-radius:10px;border:1px solid rgba(185, 28, 28, 0.2);margin-top:10px;font-size:12px;color:var(--alert-ink);line-height:1.6">
-            <strong>⚠ 이 예약은 환불되지 않습니다.</strong> 취소 시 환불 불가.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">14</div>
-        <div class="step-label">
-          <div class="step-label-en">Protection</div>
-          <div class="step-label-ko">환불 보호 · 해제 권장</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        크루즈는 기본적으로 <strong>환불 불가</strong>예요. 추가 보호를 살 수 있지만, <strong>특별한 사정이 없다면 해제</strong>를 권장해요.
-      </p>
-      <div class="box box-alert">
-        <div class="box-title">꼭 알아두세요</div>
-        <div class="box-body">
-          <ul>
-            <li>환불 요청은 <strong>증빙 서류</strong> 필요 (질병·사고 등)</li>
-            <li>단순 변심·일정 변경은 <strong>환불 대상 아님</strong></li>
-            <li>보호 비용이 보험료보다 비쌀 수도 있어요</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 15 ============== -->
-
-<section class="step" id="step-15">
-  <div class="step-grid">
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">15</div>
-        <div class="step-label">
-          <div class="step-label-en">Payment</div>
-          <div class="step-label-ko">결제 · 통화 주의</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        마지막 관문. 통화를 잘못 고르면 <strong>환율 수수료로 손해</strong>를 볼 수 있어요.
-      </p>
-      <div class="box box-alert">
-        <div class="box-title"><span class="badge" style="background:var(--alert-border)">USD 선택</span></div>
-        <div class="box-body">
-          통화는 반드시 <strong>USD(달러)</strong>로 결제하세요. KRW 선택 시 <strong>환율 손해</strong>가 있어요.
-        </div>
-      </div>
-      <div class="box box-info">
-        <div class="box-title">결제 카드 요건</div>
-        <div class="box-body">
-          <ul>
-            <li><strong>해외결제 가능한</strong> VISA 또는 MASTER 카드</li>
-            <li>국내 전용 카드는 결제 불가</li>
-            <li>inCruises 지갑으로도 결제 가능</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="step-visual">
-      <div class="mock">
-        <div class="mock-body">
-          <div class="quick-label">결제 통화</div>
-          <div class="currency-grid">
-            <div class="currency-tile active">🇺🇸 USD</div>
-            <div class="currency-tile">🇪🇺 EUR</div>
-            <div class="currency-tile">🇬🇧 GBP</div>
-            <div class="currency-tile">🇯🇵 JPY</div>
-          </div>
-          <div style="background:var(--ivory);padding:12px 14px;border-radius:10px;font-size:12px;color:var(--ink-muted);margin-bottom:8px">
-            ⚠ 잘못된 통화 선택 시 환율 손해 발생
-          </div>
-          <div class="card-preview">
-            <div class="card-chip"></div>
-            <div class="card-number">•••• •••• •••• XXXX</div>
-            <div class="card-bottom">
-              <div><span class="card-bottom-label">CARDHOLDER</span>YOUR NAME</div>
-              <div><span class="card-bottom-label">EXPIRES</span>MM/YY</div>
-            </div>
-          </div>
-          <div style="text-align:right;margin-top:14px;font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--navy)">
-            예) USD $1,800.00
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STEP 16 ============== -->
-
-<section class="step" id="step-16">
-  <div class="step-grid">
-    <div class="step-visual">
-      <div class="complete-card">
-        <div class="complete-check">✓</div>
-        <div class="complete-title">예약 완료</div>
-        <div class="complete-sub">멋진 크루즈 여정이 시작됩니다</div>
-        <div class="complete-steps">
-          <div class="complete-step">
-            <div class="complete-step-num">1</div>
-            <div class="complete-step-text"><strong>예약증 확인</strong> — 우측 상단 ☰ → 크루즈 → 예약 탭</div>
-          </div>
-          <div class="complete-step">
-            <div class="complete-step-num">2</div>
-            <div class="complete-step-text"><strong>출발 1개월~2주 전</strong> — 선사 홈페이지에서 웹체크인</div>
-          </div>
-          <div class="complete-step">
-            <div class="complete-step-num">3</div>
-            <div class="complete-step-text"><strong>필요서류 인쇄</strong> — 크루즈 예약증 + 짐태그</div>
-          </div>
-          <div class="complete-step">
-            <div class="complete-step-num">4</div>
-            <div class="complete-step-text"><strong>터미널 도착</strong> — 출발 2시간 전까지</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="step-copy">
-      <div class="step-header">
-        <div class="step-num">16</div>
-        <div class="step-label">
-          <div class="step-label-en">After Booking</div>
-          <div class="step-label-ko">예약 완료! 다음은?</div>
-        </div>
-      </div>
-      <p class="step-desc">
-        결제가 끝났다고 끝이 아니에요. <strong>웹체크인까지 해야</strong> 진짜 완성돼요.
-      </p>
-      <div class="box box-alert">
-        <div class="box-title">웹체크인 필수</div>
-        <div class="box-body">
-          <strong>모든 크루즈 선사</strong>가 온라인 웹체크인을 요구해요. 안 하면 <strong>탑승 거부</strong>될 수 있어요.
-        </div>
-      </div>
-      <div class="box box-ok">
-        <div class="box-title">마지막 체크리스트</div>
-        <div class="box-body">
-          <ul>
-            <li>여권 유효기간 <strong>6개월 이상</strong> 남았는지</li>
-            <li>비자 필요한 국가 여부</li>
-            <li>짐태그 <strong>인쇄해서 준비</strong></li>
-            <li>의무 팁($XX/일) 선상 결제 대비</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-</div>
 
 <!-- ============ CTA ============ -->
 
@@ -2239,65 +1537,47 @@
     <div class="cta-overline">Ready to sail?</div>
     <h2 class="cta-title">이제 <em>여행</em>을<br>시작할 시간이에요</h2>
     <p class="cta-desc">
-      궁금한 점이 있다면 커피챗으로 편하게 연락주세요.<br>
-      첫 크루즈, 함께 준비해드릴게요.
+      당신의 첫 항해,<br>설렘으로 가득하길 바랍니다.
     </p>
-    <a href="https://open.kakao.com/o/sbJudavg" target="_blank" rel="noopener" class="cta-btn">☕ Coffee with Bella</a>
   </div>
 </section>
 
 <footer>
-  <strong>Bella · Cruise Nomad</strong>
-  @bellaleeon · YouTube: 7급퇴사 세계여행
+  <strong>Cruise Club</strong>
+  당신의 첫 항해를 위한 8단계 가이드
   <em>이 가이드는 교육용입니다. 실제 가격·일정·선박은 예약 시점에 따라 달라질 수 있어요.</em>
 </footer>
 
-<!-- TOC -->
-
-<div class="toc">
-  <button class="toc-dot active" data-step="1" aria-label="Step 1"></button>
-  <button class="toc-dot" data-step="2" aria-label="Step 2"></button>
-  <button class="toc-dot" data-step="3" aria-label="Step 3"></button>
-  <button class="toc-dot" data-step="4" aria-label="Step 4"></button>
-  <button class="toc-dot" data-step="5" aria-label="Step 5"></button>
-  <button class="toc-dot" data-step="6" aria-label="Step 6"></button>
-  <button class="toc-dot" data-step="7" aria-label="Step 7"></button>
-  <button class="toc-dot" data-step="8" aria-label="Step 8"></button>
-  <button class="toc-dot" data-step="9" aria-label="Step 9"></button>
-  <button class="toc-dot" data-step="10" aria-label="Step 10"></button>
-  <button class="toc-dot" data-step="11" aria-label="Step 11"></button>
-  <button class="toc-dot" data-step="12" aria-label="Step 12"></button>
-  <button class="toc-dot" data-step="13" aria-label="Step 13"></button>
-  <button class="toc-dot" data-step="14" aria-label="Step 14"></button>
-  <button class="toc-dot" data-step="15" aria-label="Step 15"></button>
-  <button class="toc-dot" data-step="16" aria-label="Step 16"></button>
-</div>
-
 <script>
-  // TOC click
-  document.querySelectorAll('.toc-dot').forEach(dot => {
-    dot.addEventListener('click', () => {
-      const n = dot.dataset.step;
-      const id = 'step-' + String(n).padStart(2, '0');
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Metro station click - placeholder for future guide content
+  document.querySelectorAll('.metro-station').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const step = btn.dataset.step;
+      showToast(step + '단계 가이드 곧 공개됩니다 ✨');
     });
   });
-  // TOC scroll-spy
-  const dots = document.querySelectorAll('.toc-dot');
-  const sections = document.querySelectorAll('.step');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        const n = parseInt(id.split('-')[1]);
-        dots.forEach(d => d.classList.remove('active'));
-        const active = document.querySelector(`.toc-dot[data-step="${n}"]`);
-        if (active) active.classList.add('active');
-      }
+
+  // Tip button
+  const tipBtn = document.getElementById('metro-tip-btn');
+  if (tipBtn) {
+    tipBtn.addEventListener('click', () => {
+      showToast('안내사항 준비중입니다');
     });
-  }, { rootMargin: '-40% 0px -40% 0px' });
-  sections.forEach(s => observer.observe(s));
+  }
+
+  // Toast helper
+  function showToast(msg) {
+    document.querySelectorAll('.metro-toast').forEach(t => t.remove());
+    const t = document.createElement('div');
+    t.className = 'metro-toast';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    requestAnimationFrame(() => t.classList.add('show'));
+    setTimeout(() => {
+      t.classList.remove('show');
+      setTimeout(() => t.remove(), 300);
+    }, 2000);
+  }
 </script>
 
 </body>
