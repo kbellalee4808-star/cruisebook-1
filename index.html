@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -8,7 +7,6 @@
 <meta name="description" content="inCruises 크루즈 예약, 이 가이드만 따라하면 끝. 처음이라도 걱정 없이 16단계로 완성하는 크루즈 첫 여행.">
 
 <!-- Fonts -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap">
@@ -108,11 +106,18 @@
     background:rgba(255,255,255,0.18);
   }
   .topbar-logo{
-    width:30px;height:30px;border-radius:7px;
-    background:var(--gold);
+    height:32px;
+    border-radius:6px;
+    background:white;
+    padding:3px 6px;
     display:flex;align-items:center;justify-content:center;
-    font-family:var(--font-display);font-style:italic;font-weight:700;
-    color:white;font-size:15px;
+    box-shadow:0 2px 6px -2px rgba(0,0,0,0.18);
+    flex-shrink:0;
+  }
+  .topbar-logo img{
+    height:100%;width:auto;
+    display:block;
+    object-fit:contain;
   }
   .topbar-title{
     font-family:var(--font-accent);
@@ -149,7 +154,7 @@
     .topbar-title-sub{display:none}
     .topbar-title{font-size:13px}
     .topbar-cta{padding:8px 14px;font-size:12px}
-    .topbar-logo{width:28px;height:28px;font-size:14px}
+    .topbar-logo{height:28px;padding:2px 5px}
     .topbar-back-arrow{width:28px;height:28px;font-size:14px}
   }
 
@@ -239,6 +244,7 @@
     border:1px solid var(--line);
     border-radius:999px;
     backdrop-filter:blur(10px);
+    margin-bottom:80px;
   }
   .hero-meta-dot{
     width:8px;height:8px;border-radius:50%;background:var(--gold);
@@ -253,22 +259,27 @@
   }
   .hero-scroll{
     position:absolute;
-    bottom:40px;left:50%;
+    bottom:24px;left:50%;
     transform:translateX(-50%);
-    display:flex;flex-direction:column;align-items:center;gap:12px;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
     font-family:var(--font-accent);
-    font-size:11px;letter-spacing:0.3em;
+    font-size:10px;letter-spacing:0.3em;
     color:var(--ink-muted);
     text-transform:uppercase;
   }
   .hero-scroll-line{
-    width:1px;height:60px;
+    width:1px;height:42px;
     background:linear-gradient(180deg, transparent, var(--gold), transparent);
     animation:scroll-line 2.4s ease-in-out infinite;
   }
   @keyframes scroll-line{
     0%,100%{opacity:0.4}
     50%{opacity:1}
+  }
+  @media (max-width:520px){
+    .hero-meta{margin-bottom:64px}
+    .hero-scroll{bottom:18px;gap:8px}
+    .hero-scroll-line{height:32px}
   }
 
   /* ======================= METRO LINE (8 STEPS) ======================= */
@@ -429,7 +440,8 @@
   }
   .metro-tip-row{
     display:flex;
-    justify-content:center;
+    flex-direction:column;
+    align-items:center;
     margin-top:50px;
   }
   .metro-tip-btn{
@@ -449,6 +461,107 @@
     border-color:var(--gold);
     color:var(--gold);
     transform:translateY(-1px);
+  }
+  .metro-tip-btn .tip-arrow{
+    transition:transform 0.3s ease;
+    font-size:11px;
+  }
+  .metro-tip-btn.open .tip-arrow{transform:rotate(180deg)}
+
+  .tip-panel{
+    width:100%;
+    max-width:520px;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1), margin-top 0.3s ease;
+  }
+  .tip-panel.open{
+    max-height:600px;
+    margin-top:14px;
+  }
+  .tip-panel-inner{
+    background:linear-gradient(180deg, white, var(--ivory-warm));
+    border:1.5px solid var(--gold);
+    border-radius:16px;
+    padding:20px 18px;
+    box-shadow:0 6px 18px -4px rgba(212,169,74,0.22);
+  }
+  .tip-panel-title{
+    font-family:'GmarketSansMedium', var(--font-body);
+    font-size:14px;
+    font-weight:700;
+    color:var(--navy);
+    text-align:center;
+    margin-bottom:16px;
+    letter-spacing:-0.02em;
+  }
+  .video-btn-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .video-btn{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:white;
+    border:1.5px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    text-decoration:none;
+    color:var(--navy);
+    transition:all 0.2s ease;
+    cursor:pointer;
+    width:100%;
+    text-align:left;
+    font-family:inherit;
+  }
+  .video-btn:hover{
+    border-color:#C8000F;
+    background:#FFF5F5;
+    transform:translateY(-1px);
+    box-shadow:0 5px 14px -4px rgba(200,0,15,0.18);
+  }
+  .video-btn-icon{
+    width:42px;height:42px;
+    border-radius:10px;
+    background:linear-gradient(135deg, #FF4B4B, #C8000F);
+    color:white;
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+    flex-shrink:0;
+    box-shadow:0 2px 6px -2px rgba(200,0,15,0.4);
+  }
+  .video-btn-body{
+    flex:1;
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--navy);
+    line-height:1.4;
+    letter-spacing:-0.02em;
+  }
+  .video-btn-sub{
+    display:block;
+    font-size:11.5px;
+    font-weight:500;
+    color:var(--ink-muted);
+    margin-top:3px;
+    letter-spacing:0;
+  }
+  .video-btn-arrow{
+    color:var(--ink-muted);
+    font-size:14px;
+    transition:transform 0.2s ease;
+  }
+  .video-btn:hover .video-btn-arrow{
+    transform:translateX(3px);
+    color:#C8000F;
+  }
+  @media (max-width:360px){
+    .tip-panel-inner{padding:16px 14px}
+    .video-btn{padding:12px 13px;gap:10px}
+    .video-btn-icon{width:38px;height:38px;font-size:16px}
+    .video-btn-body{font-size:12.5px}
   }
   @media (max-width:520px){
     .metro{padding:60px 16px 80px}
@@ -481,6 +594,895 @@
     .metro-end-dot{left:21px}
     .metro-circle{width:56px;height:56px;font-size:22px;border-width:4px}
     .metro-ko{font-size:14.5px}
+  }
+
+  /* ======================= METRO PANEL (expandable) ======================= */
+  .metro-panel{
+    padding-left:98px;
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
+    position:relative;
+    z-index:2;
+  }
+  .metro-panel.open{
+    max-height:5000px;
+    opacity:1;
+    margin-bottom:18px;
+  }
+  .metro-panel-inner{
+    background:white;
+    padding:26px 24px;
+    border-radius:14px;
+    border:1.5px solid var(--line);
+    box-shadow:0 4px 14px -6px rgba(27, 58, 92, 0.08);
+    margin-top:6px;
+  }
+  .metro-panel-desc{
+    font-size:15px;
+    line-height:1.7;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+    word-break:keep-all;
+  }
+  .metro-panel-desc strong{color:var(--navy);font-weight:700}
+  .metro-station.expanded .metro-arrow{
+    transform:rotate(90deg);
+    color:var(--gold);
+  }
+  @media (max-width:520px){
+    .metro-panel{padding-left:78px}
+    .metro-panel-inner{padding:20px 16px}
+    .metro-panel-desc{font-size:14px}
+  }
+  @media (max-width:360px){
+    .metro-panel{padding-left:68px}
+  }
+
+  /* ======================= PANEL SUB-SECTIONS ======================= */
+  .metro-panel-subtitle{
+    font-family:'GmarketSansMedium', var(--font-body);
+    font-size:16px;
+    font-weight:700;
+    color:var(--navy);
+    margin-top:26px;
+    margin-bottom:10px;
+    letter-spacing:-0.02em;
+    display:flex;align-items:center;gap:8px;
+  }
+  .metro-panel-subtitle::before{
+    content:'';
+    width:4px;height:16px;
+    background:var(--gold);
+    border-radius:2px;
+  }
+
+  /* Expandable sub-button (e.g. 크루즈 추천 시기) */
+  .panel-sub-btn{
+    width:100%;
+    margin-top:22px;
+    background:var(--ivory);
+    border:1.5px solid var(--line);
+    border-radius:12px;
+    padding:14px 18px;
+    display:flex;align-items:center;justify-content:space-between;
+    cursor:pointer;
+    font-family:var(--font-body);
+    font-size:14px;
+    font-weight:700;
+    color:var(--navy);
+    transition:all 0.2s ease;
+    text-align:left;
+  }
+  .panel-sub-btn:hover{
+    border-color:var(--gold);
+    background:white;
+  }
+  .panel-sub-btn .panel-sub-arrow{
+    color:var(--gold);
+    font-size:12px;
+    transition:transform 0.3s ease;
+  }
+  .panel-sub-btn.open .panel-sub-arrow{
+    transform:rotate(180deg);
+  }
+  .panel-sub-content{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+  }
+  .panel-sub-content.open{
+    max-height:1500px;
+    opacity:1;
+    margin-top:12px;
+  }
+
+  /* Season recommendation cards */
+  .season-list{
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .season-card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    transition:all 0.2s ease;
+  }
+  .season-card:hover{
+    border-color:var(--gold);
+    box-shadow:0 4px 10px -3px rgba(27, 58, 92, 0.08);
+  }
+  .season-card-row{
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:6px;
+  }
+  .season-dot{
+    width:10px;height:10px;border-radius:50%;
+    flex-shrink:0;
+  }
+  .season-name{
+    font-family:'GmarketSansMedium', var(--font-body);
+    font-size:14px;font-weight:700;
+    color:var(--navy);
+    flex:1;
+    letter-spacing:-0.01em;
+  }
+  .season-period{
+    font-family:var(--font-body);
+    font-size:13px;font-weight:700;
+    color:var(--gold);
+    letter-spacing:-0.01em;
+    flex-shrink:0;
+  }
+  .season-note{
+    font-size:12px;
+    color:var(--ink-muted);
+    line-height:1.5;
+    padding-left:20px;
+    word-break:keep-all;
+  }
+  @media (max-width:360px){
+    .season-name{font-size:13px}
+    .season-period{font-size:12px}
+    .season-note{font-size:11px;padding-left:18px}
+  }
+
+  /* ======================= CABIN IMAGE GRID ======================= */
+  .cabin-image-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:14px;
+  }
+  .cabin-image-card{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    border:1.5px solid var(--line);
+    box-shadow:0 2px 8px -2px rgba(27,58,92,0.08);
+    position:relative;
+    transition:all 0.25s ease;
+  }
+  .cabin-image-card.featured{
+    border-color:var(--gold);
+    border-width:2.5px;
+    box-shadow:0 6px 16px -4px rgba(212,169,74,0.25);
+  }
+  .cabin-image-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px -4px rgba(27,58,92,0.15);
+  }
+  .cabin-image-card.featured:hover{
+    box-shadow:0 10px 24px -4px rgba(212,169,74,0.35);
+  }
+  .cabin-popular-tag{
+    position:absolute;
+    top:10px;left:10px;
+    background:#E53935;
+    color:white;
+    font-size:11px;
+    font-weight:700;
+    padding:4px 11px;
+    border-radius:999px;
+    z-index:2;
+    letter-spacing:-0.01em;
+    box-shadow:0 4px 10px -3px rgba(229,57,53,0.5);
+  }
+  .cabin-image-area{
+    height:140px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .cabin-image-area::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(255,255,255,0.35), transparent 45%),
+      radial-gradient(circle at 75% 70%, rgba(255,255,255,0.15), transparent 50%);
+    pointer-events:none;
+  }
+  .cabin-image-area::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.08) 100%);
+    pointer-events:none;
+  }
+  .cabin-image-area[data-type="inside"]{
+    background:linear-gradient(135deg, #F4D8B8 0%, #D4A06A 55%, #8B5E36 100%);
+  }
+  .cabin-image-area[data-type="oceanview"]{
+    background:linear-gradient(135deg, #B6E0F2 0%, #87CEEB 50%, #5BA8C7 100%);
+  }
+  .cabin-image-area[data-type="terrace"]{
+    background:linear-gradient(135deg, #5BA8C7 0%, #2E6F94 50%, #DC4444 110%);
+  }
+  .cabin-image-area[data-type="suite"]{
+    background:linear-gradient(135deg, #FFC9A8 0%, #E07857 45%, #3A3A6E 100%);
+  }
+  .cabin-image-icon{
+    font-size:54px;
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,0.25));
+    position:relative;
+    z-index:1;
+    line-height:1;
+  }
+  .cabin-image-label{
+    padding:14px 16px 16px;
+  }
+  .cabin-image-name{
+    font-family:'GmarketSansMedium', var(--font-body);
+    font-size:16px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:5px;
+    letter-spacing:-0.02em;
+    display:flex;align-items:center;gap:6px;
+  }
+  .cabin-image-name-emoji{
+    font-size:18px;
+  }
+  .cabin-image-desc{
+    font-size:12px;
+    color:var(--ink-muted);
+    line-height:1.45;
+    word-break:keep-all;
+  }
+  @media (max-width:520px){
+    .cabin-image-area{height:118px}
+    .cabin-image-icon{font-size:46px}
+    .cabin-image-label{padding:12px 13px 14px}
+    .cabin-image-name{font-size:14.5px}
+    .cabin-image-name-emoji{font-size:16px}
+    .cabin-image-desc{font-size:11.5px}
+    .cabin-popular-tag{font-size:10px;padding:3px 9px;top:8px;left:8px}
+  }
+  @media (max-width:360px){
+    .cabin-image-grid{gap:8px}
+    .cabin-image-area{height:104px}
+    .cabin-image-icon{font-size:40px}
+    .cabin-image-name{font-size:13.5px}
+    .cabin-image-desc{font-size:11px}
+  }
+
+  /* ======================= BOOK CRUISE CTA ======================= */
+  .book-cruise-cta{
+    margin:18px 0 14px;
+    text-align:center;
+  }
+  .book-cruise-btn{
+    background:linear-gradient(135deg, #FF8C42 0%, #FF6B1A 100%);
+    color:white;
+    font-weight:700;
+    font-size:13.5px;
+    padding:11px 28px;
+    border:none;
+    border-radius:999px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    box-shadow:0 5px 14px -4px rgba(255,107,26,0.45);
+    transition:all 0.2s ease;
+    font-family:inherit;
+    letter-spacing:0.01em;
+  }
+  .book-cruise-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 7px 18px -4px rgba(255,107,26,0.55);
+  }
+  .book-cruise-btn .book-cruise-arrow{
+    transition:transform 0.2s ease;
+  }
+  .book-cruise-btn:hover .book-cruise-arrow{
+    transform:translateX(3px);
+  }
+  @media (max-width:520px){
+    .book-cruise-btn{padding:10px 24px;font-size:13px}
+  }
+
+  /* ======================= DECK MAP ======================= */
+  .deck-map{
+    margin-top:14px;
+    background:var(--ivory);
+    padding:16px 14px 14px;
+    border-radius:12px;
+    border:1px solid var(--line);
+  }
+  .deck-map-header{
+    display:grid;
+    grid-template-columns:1fr 70px 1fr;
+    gap:6px;
+    margin-bottom:10px;
+    align-items:center;
+  }
+  .deck-map-header-label{
+    text-align:center;
+    font-size:10px;
+    font-weight:700;
+    color:var(--ink-muted);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  .deck-map-header-label.even{color:#FF8C42}
+  .deck-map-header-label.odd{color:#5BA8C7}
+  .deck-map-grid{
+    display:grid;
+    grid-template-columns:1fr 70px 1fr;
+    gap:5px;
+  }
+  .cabin-cell{
+    background:white;
+    border:1.5px solid var(--line);
+    border-radius:6px;
+    padding:8px 4px;
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--navy);
+    text-align:center;
+    font-family:var(--font-mono);
+    letter-spacing:0.02em;
+  }
+  .cabin-cell.even{
+    background:#FFF1E0;
+    border-color:#FFC9A0;
+  }
+  .cabin-cell.odd{
+    background:#E8F4FA;
+    border-color:#A6D4E8;
+  }
+  .cabin-cell.highlight{
+    background:linear-gradient(135deg, var(--gold-pale), var(--gold-soft));
+    border-color:var(--gold);
+    color:var(--navy);
+    box-shadow:0 0 0 2px rgba(212,169,74,0.2);
+  }
+  .corridor-cell{
+    background:transparent;
+  }
+  .lift-cell{
+    background:linear-gradient(135deg, var(--navy), var(--navy-deep));
+    color:white;
+    border-radius:6px;
+    padding:8px 4px;
+    font-size:10.5px;
+    font-weight:700;
+    text-align:center;
+    letter-spacing:0.05em;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 2px 6px -2px rgba(27,58,92,0.3);
+  }
+  @media (max-width:360px){
+    .deck-map{padding:14px 10px 12px}
+    .deck-map-grid,.deck-map-header{grid-template-columns:1fr 56px 1fr}
+    .cabin-cell{font-size:10.5px;padding:7px 3px}
+    .lift-cell{font-size:9.5px;padding:7px 3px}
+  }
+
+  /* ======================= REWARDS PANEL ======================= */
+  .reward-option-card{
+    background:var(--ivory);
+    border:1.5px solid var(--line);
+    border-radius:14px;
+    padding:18px 18px;
+    margin-bottom:10px;
+    transition:all 0.2s ease;
+  }
+  .reward-option-card:last-child{margin-bottom:0}
+  .reward-option-card.highlighted{
+    border-color:#FF8C42;
+    border-width:2.5px;
+    background:linear-gradient(135deg, #FFF5E6 0%, #FFFCF7 70%);
+    box-shadow:0 6px 18px -6px rgba(255,140,0,0.28);
+  }
+  .reward-option-label{
+    font-size:12px;
+    color:var(--ink-muted);
+    font-weight:600;
+    margin-bottom:6px;
+    letter-spacing:-0.01em;
+  }
+  .reward-option-card.highlighted .reward-option-label{
+    color:#B8651A;
+  }
+  .reward-option-price{
+    font-family:'GmarketSansMedium', var(--font-body);
+    font-size:22px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:6px;
+    letter-spacing:-0.02em;
+    line-height:1.2;
+  }
+  .reward-option-card.highlighted .reward-option-price{
+    color:#D4651A;
+  }
+  .reward-option-note{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .reward-option-extra{
+    font-size:11.5px;
+    color:var(--ink-muted);
+    padding-top:10px;
+    margin-top:10px;
+    border-top:1px dashed var(--line);
+    line-height:1.5;
+  }
+
+  .reward-pp-card{
+    background:var(--ivory);
+    border:1.5px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    margin-bottom:10px;
+    transition:all 0.2s ease;
+  }
+  .reward-pp-card:last-child{margin-bottom:0}
+  .reward-pp-card.active{
+    border-color:#FF8C42;
+    border-width:2.5px;
+    background:linear-gradient(135deg, #FFF5E6 0%, #FFFCF7 70%);
+    box-shadow:0 4px 14px -4px rgba(255,140,0,0.22);
+  }
+  .reward-pp-label{
+    font-size:12px;
+    color:var(--ink-muted);
+    margin-bottom:4px;
+    font-weight:600;
+  }
+  .reward-pp-card.active .reward-pp-label{
+    color:#B8651A;
+    font-weight:700;
+  }
+  .reward-pp-amount{
+    font-family:'GmarketSansMedium', var(--font-body);
+    font-size:18px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:3px;
+    letter-spacing:-0.02em;
+  }
+  .reward-pp-card.active .reward-pp-amount{
+    color:#D4651A;
+  }
+  .reward-pp-sub{
+    font-size:12px;
+    color:var(--ink-muted);
+    margin-bottom:6px;
+  }
+  .reward-pp-balance{
+    font-size:11px;
+    color:var(--ink-muted);
+    padding-top:6px;
+    border-top:1px dashed var(--line);
+    margin-top:6px;
+    letter-spacing:-0.01em;
+  }
+
+  /* Payment method guide (안내 펼침 안) */
+  .payment-method-card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    margin-bottom:10px;
+  }
+  .payment-method-card:last-child{margin-bottom:0}
+  .payment-method-name{
+    font-family:'GmarketSansMedium', var(--font-body);
+    font-size:14px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:6px;
+    letter-spacing:-0.01em;
+  }
+  .payment-method-desc{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.65;
+    word-break:keep-all;
+  }
+  @media (max-width:360px){
+    .reward-option-card{padding:15px 14px}
+    .reward-option-price{font-size:20px}
+    .reward-option-note{font-size:11.5px}
+  }
+
+  /* ======================= REWARD GUIDE (펼침 안 콘텐츠) ======================= */
+  .guide-method{
+    border-radius:14px;
+    padding:18px 16px 16px;
+    margin-bottom:14px;
+  }
+  .guide-method-1{
+    background:linear-gradient(180deg, #EAF4FB 0%, #DCEAF5 100%);
+    border:1.5px solid #B6D4E8;
+  }
+  .guide-method-2{
+    background:linear-gradient(180deg, #E8F5E9 0%, #D8EBDB 100%);
+    border:1.5px solid #B6D4B0;
+  }
+  .guide-method-header{
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:14px;
+    flex-wrap:wrap;
+  }
+  .guide-method-tag{
+    background:var(--navy);
+    color:white;
+    font-size:11.5px;
+    font-weight:700;
+    padding:4px 11px;
+    border-radius:999px;
+    letter-spacing:0.02em;
+  }
+  .guide-method-2 .guide-method-tag{
+    background:#3B7A4D;
+  }
+  .guide-method-title{
+    font-family:'GmarketSansMedium', var(--font-body);
+    font-size:16px;
+    font-weight:700;
+    color:var(--navy);
+    letter-spacing:-0.02em;
+    line-height:1.3;
+  }
+  .guide-method-2 .guide-method-title{color:#1F4D2D}
+  .guide-method-en{
+    font-size:11.5px;
+    color:var(--ink-muted);
+    font-weight:500;
+    margin-left:4px;
+  }
+  .guide-step{
+    background:rgba(255,255,255,0.6);
+    border-radius:10px;
+    padding:13px 14px;
+    margin-bottom:8px;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .guide-step-num{
+    width:22px;height:22px;
+    background:#5B7A98;
+    color:white;
+    font-size:12px;
+    font-weight:700;
+    border-radius:5px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .guide-method-2 .guide-step-num{background:#3B7A4D}
+  .guide-step-body{
+    flex:1;
+    font-size:13px;
+    line-height:1.55;
+    color:var(--navy);
+  }
+  .guide-step-arrow{
+    color:#5B7A98;font-weight:700;
+  }
+  .guide-method-2 .guide-step-arrow{color:#3B7A4D}
+  .guide-rp-tag{
+    display:inline-block;
+    background:linear-gradient(135deg, #FFE9A8, #FFD56A);
+    border:1.5px solid #E8B432;
+    color:#8B5A1A;
+    font-size:11.5px;
+    font-weight:700;
+    padding:3px 10px;
+    border-radius:999px;
+    margin-top:6px;
+    letter-spacing:-0.01em;
+  }
+  .guide-rp-tag.rp2{
+    background:linear-gradient(135deg, var(--navy), var(--navy-deep));
+    border-color:var(--navy);
+    color:white;
+  }
+
+  /* 예시 박스 (방법 1) */
+  .guide-example{
+    background:rgba(255,255,255,0.85);
+    border-radius:10px;
+    padding:14px;
+    margin-top:12px;
+  }
+  .guide-example-title{
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:12px;
+    letter-spacing:-0.02em;
+  }
+  .guide-example-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:12.5px;
+  }
+  .guide-example-row:last-of-type{border-bottom:none}
+  .guide-example-label{color:var(--ink-soft);line-height:1.5;flex:1;padding-right:8px}
+  .guide-example-value{
+    font-weight:700;
+    color:var(--navy);
+    font-family:'GmarketSansMedium', var(--font-body);
+    white-space:nowrap;
+    font-size:13px;
+  }
+  .guide-example-total{
+    margin-top:10px;padding-top:10px;
+    border-top:2px solid var(--navy);
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .guide-example-total-label{font-weight:700;color:var(--navy);font-size:13px}
+  .guide-example-total-value{font-weight:700;color:#3B7A4D;font-size:13.5px}
+  .guide-method-bottom{
+    margin-top:12px;
+    padding:10px 12px;
+    background:rgba(255,255,255,0.6);
+    border-radius:10px;
+    font-size:12px;
+    color:var(--ink-soft);
+    text-align:center;
+    line-height:1.5;
+  }
+
+  /* 방법 2 - 내자리/동반자 박스 */
+  .guide-share-card{
+    background:rgba(255,255,255,0.7);
+    border-radius:10px;
+    padding:13px 14px;
+    margin-top:8px;
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  .guide-share-emoji{font-size:24px;line-height:1;margin-top:2px}
+  .guide-share-body{flex:1;font-size:13px;line-height:1.5;color:var(--navy)}
+  .guide-share-title{font-weight:700;margin-bottom:3px}
+  .guide-share-summary{
+    margin-top:12px;
+    background:rgba(255,255,255,0.85);
+    border:1px dashed #5B7A98;
+    border-radius:10px;
+    padding:11px 13px;
+    font-size:12.5px;
+    line-height:1.6;
+    color:var(--navy);
+  }
+
+  /* 타이밍 안내 박스 (사진 3) */
+  .guide-tip-box{
+    background:linear-gradient(135deg, var(--gold-pale), var(--gold-soft));
+    border:1.5px solid var(--gold);
+    border-radius:12px;
+    padding:14px 16px;
+    margin:12px 0;
+    font-size:12.5px;
+    line-height:1.6;
+    color:var(--navy);
+  }
+  .guide-tip-box-title{
+    font-weight:700;
+    color:#8B5A1A;
+    margin-bottom:8px;
+    font-size:13.5px;
+    letter-spacing:-0.02em;
+  }
+  .guide-flow-box{
+    background:rgba(91,168,199,0.08);
+    border:1px solid #B6D4E8;
+    border-radius:10px;
+    padding:14px;
+    margin-top:12px;
+  }
+  .guide-flow-title{
+    font-weight:700;color:var(--navy);
+    font-size:13.5px;margin-bottom:10px;
+  }
+  .guide-flow-item{
+    display:flex;gap:10px;align-items:flex-start;
+    margin-bottom:8px;
+    font-size:12.5px;line-height:1.5;
+    color:var(--navy);
+  }
+  .guide-flow-num{
+    width:20px;height:20px;
+    background:var(--navy);color:white;
+    font-size:11px;font-weight:700;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .guide-flow-num.green{background:#3B7A4D}
+
+  /* 연속 예약 박스 (사진 4) */
+  .guide-cont-box{
+    background:linear-gradient(180deg, #E8F5E9 0%, #DCEFE0 100%);
+    border:1.5px solid #B6D4B0;
+    border-radius:12px;
+    padding:14px 16px;
+    margin-top:14px;
+  }
+  .guide-cont-title{
+    font-size:13.5px;
+    font-weight:700;
+    color:#1F4D2D;
+    margin-bottom:10px;
+  }
+  .guide-cont-quote{
+    background:rgba(255,255,255,0.7);
+    padding:10px 12px;
+    border-radius:8px;
+    margin-top:10px;
+    font-size:12.5px;
+    color:#1F4D2D;
+    text-align:center;
+    line-height:1.6;
+    font-weight:600;
+  }
+  .guide-warn-box{
+    background:rgba(255,255,255,0.7);
+    border-radius:8px;
+    padding:11px 13px;
+    margin-top:10px;
+    font-size:11.5px;
+    line-height:1.6;
+    color:var(--ink-soft);
+  }
+  .guide-warn-title{font-weight:700;color:var(--navy);margin-bottom:5px}
+
+  /* 방법 1+2 함께 활용 박스 */
+  .guide-combo-box{
+    background:linear-gradient(180deg, white, #F5F8FB);
+    border:1.5px solid var(--navy);
+    border-radius:12px;
+    padding:14px 16px;
+    margin-top:14px;
+  }
+  .guide-combo-title{
+    font-size:13.5px;font-weight:700;
+    color:var(--navy);margin-bottom:8px;
+  }
+  .guide-combo-body{
+    font-size:12.5px;line-height:1.65;
+    color:var(--ink-soft);
+  }
+
+  /* 주소 복사 박스 */
+  .copy-box{
+    margin-top:14px;
+    background:linear-gradient(135deg, var(--gold-pale), var(--gold-soft));
+    border:1.5px solid var(--gold);
+    border-radius:12px;
+    padding:14px 16px;
+  }
+  .copy-box-title{
+    font-weight:700;
+    color:#8B5A1A;
+    font-size:13.5px;
+    margin-bottom:8px;
+    letter-spacing:-0.02em;
+  }
+  .copy-box-desc{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.6;
+    margin-bottom:12px;
+    word-break:keep-all;
+  }
+  .copy-row{
+    display:flex;
+    gap:8px;
+    align-items:stretch;
+  }
+  .copy-input{
+    flex:1;
+    background:white;
+    border:1.5px solid var(--gold);
+    border-radius:10px;
+    padding:12px 14px;
+    font-family:'GmarketSansMedium', var(--font-body);
+    font-size:15px;
+    font-weight:700;
+    color:var(--navy);
+    letter-spacing:0.02em;
+    text-align:center;
+    user-select:all;
+    min-height:50px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .copy-btn{
+    background:var(--navy);
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:0 18px;
+    font-family:inherit;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:6px;
+    min-height:50px;
+    flex-shrink:0;
+    transition:all 0.2s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .copy-btn:hover,.copy-btn:active{
+    background:var(--navy-deep);
+    transform:translateY(-1px);
+    box-shadow:0 4px 10px -2px rgba(27,58,92,0.4);
+  }
+  .copy-btn.copied{
+    background:#3B7A4D;
+  }
+  .copy-btn-icon{font-size:14px;line-height:1}
+
+  /* 뒤로가기 버튼 */
+  .panel-back-btn{
+    width:100%;
+    background:white;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    padding:12px 16px;
+    color:var(--ink-soft);
+    font-size:13px;font-weight:600;
+    font-family:inherit;
+    cursor:pointer;
+    margin-top:16px;
+    transition:all 0.2s ease;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+  .panel-back-btn:hover{
+    background:var(--ivory);
+    color:var(--navy);
+    border-color:var(--gold);
+  }
+  .panel-back-btn-arrow{
+    transition:transform 0.2s ease;
+  }
+  .panel-back-btn:hover .panel-back-btn-arrow{transform:translateX(-3px)}
+
+  @media (max-width:360px){
+    .guide-method{padding:14px 12px 12px}
+    .guide-method-title{font-size:14.5px}
+    .guide-step{padding:11px 12px}
+    .guide-step-body{font-size:12px}
+    .guide-example{padding:12px}
+    .guide-example-row{font-size:11.5px}
+    .guide-example-value{font-size:12px}
   }
 
   /* ======================= TOAST ======================= */
@@ -1376,19 +2378,16 @@
   }
 
 </style>
-
 </head>
 <body>
 
 <!-- ============ TOP BAR ============ -->
-
 <header class="topbar">
   <a href="https://bellaleeon.github.io" class="topbar-brand" aria-label="메인페이지로 돌아가기">
     <span class="topbar-back-arrow" aria-hidden="true">←</span>
-    <div class="topbar-logo">in</div>
+    <div class="topbar-logo"><img src="data:image/png;base64,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" alt="Cruise Club" /></div>
     <div>
       <span class="topbar-title">Cruise Club</span>
-      <span class="topbar-title-sub">by Bella</span>
     </div>
   </a>
   <a href="https://incruises.com" target="_blank" rel="noopener" class="topbar-cta">
@@ -1398,7 +2397,6 @@
 </header>
 
 <!-- ============ HERO ============ -->
-
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-overline">Your First Cruise</div>
@@ -1419,7 +2417,6 @@
 </section>
 
 <!-- ============ METRO LINE (8 STEPS) ============ -->
-
 <section class="metro" id="metro">
   <div class="metro-inner">
     <div class="metro-header">
@@ -1427,111 +2424,1204 @@
       <h2 class="metro-title">8단계로 떠나는<br>나의 첫 크루즈</h2>
     </div>
 
-```
-<div class="metro-rail">
-  <span class="metro-end-dot start" aria-hidden="true"></span>
+    <div class="metro-rail">
+      <span class="metro-end-dot start" aria-hidden="true"></span>
 
-  <button class="metro-station" data-step="1" aria-label="1단계: 크루즈예약">
-    <div class="metro-circle">1</div>
-    <div class="metro-card">
-      <div class="metro-text">
-        <div class="metro-en">Booking</div>
-        <div class="metro-ko">크루즈예약</div>
+      <button class="metro-station" data-step="1" aria-label="1단계: 크루즈 선택" aria-expanded="false">
+        <div class="metro-circle">1</div>
+        <div class="metro-card">
+          <div class="metro-text">
+            <div class="metro-en">Cruise</div>
+            <div class="metro-ko">크루즈 선택</div>
+          </div>
+          <span class="metro-arrow" aria-hidden="true">→</span>
+        </div>
+      </button>
+
+      <div class="metro-panel" data-panel="1">
+        <div class="metro-panel-inner">
+          <p class="metro-panel-desc">
+            플랫폼 로그인부터 크루즈 상품 선택, <strong>Book Cruise</strong> 클릭까지의 흐름이에요. 단계별로 따라오세요.
+          </p>
+
+          <h4 class="metro-panel-subtitle">1. 대시보드에서 시작</h4>
+<p class="metro-panel-desc">
+            플랫폼 로그인 후 처음 만나는 화면이에요. 프로필 아래 <strong>"빠른 액세스"</strong> 영역에서 <strong>"크루즈 예약"</strong> 타일을 클릭하세요.
+          </p>
+          <div class="mock" style="margin-top:18px">
+            <div class="mock-header">
+              <div class="mock-logo"><div class="mock-logo-icon">in</div>Cruises</div>
+              <div class="mock-nav"><span>여행</span><span>호텔</span><span>투어</span></div>
+              <div class="mock-profile">You</div>
+            </div>
+            <div class="mock-body">
+              <div class="dash-welcome">다시 오신 것을 환영합니다</div>
+              <div class="dash-card">
+                <div class="dash-avatar">OO</div>
+                <div class="dash-info">
+                  <div class="dash-name">멤버 이름</div>
+                  <div class="dash-plan">OOO Member · OOO Director</div>
+                  <div class="dash-chip">자격 있음</div>
+                </div>
+              </div>
+              <div class="quick-label">빠른 액세스</div>
+              <div class="quick-grid">
+                <div class="quick-tile mock-click" style="position:relative">
+                  <span class="mock-click-tag">CLICK</span>
+                  <div class="quick-tile-icon" style="background:var(--gold)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zM3.95 19H4c1.6 0 3.02-.88 4-2 .98 1.12 2.4 2 4 2s3.02-.88 4-2c.98 1.12 2.4 2 4 2h.05l1.89-6.68c.08-.26.06-.54-.06-.78s-.34-.42-.6-.5L20 10.62V6c0-1.1-.9-2-2-2h-3V1H9v3H6c-1.1 0-2 .9-2 2v4.62l-1.29.42c-.26.08-.48.26-.6.5s-.15.52-.06.78L3.95 19zM6 6h12v3.97L12 8 6 9.97V6z"/></svg>
+                  </div>
+                  <div class="quick-tile-label">크루즈 예약</div>
+                </div>
+                <div class="quick-tile">
+                  <div class="quick-tile-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--navy)"><path d="M19 3H5c-1.11 0-2 .89-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 16H5V5h14v14z"/><path d="M7 12h10v2H7z" fill="white"/></svg>
+                  </div>
+                  <div class="quick-tile-label">호텔 예약</div>
+                </div>
+                <div class="quick-tile">
+                  <div class="quick-tile-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--navy)"><circle cx="12" cy="12" r="10"/><path d="M14.5 10.5l-4 1.5 1.5-4" fill="white"/></svg>
+                  </div>
+                  <div class="quick-tile-label">투어 예약</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h4 class="metro-panel-subtitle">2. 목적지 · 선사 · 출발일 검색</h4>
+<p class="metro-panel-desc">
+            검색 조건은 단 <strong>세 가지</strong>. 어디로 갈지, 어느 선사로, 언제 출발할지만 정하면 돼요. 정하지 못했다면 전부 <strong>"모두"</strong>로 두고 검색해도 됩니다.
+          </p>
+
+          <!-- 검색 폼 mock-up -->
+          <div class="mock" style="margin-top:18px">
+            <div class="mock-header">
+              <div class="mock-logo"><div class="mock-logo-icon">in</div>Cruises</div>
+              <div class="mock-nav"><span>여행</span><span>호텔</span><span>투어</span></div>
+              <div class="mock-profile">You</div>
+            </div>
+            <div class="mock-body" style="background:linear-gradient(180deg, var(--santorini) 0%, var(--santorini-deep) 40%, var(--ivory) 40%);padding-top:44px">
+              <div style="background:white;border-radius:14px;padding:20px;box-shadow:0 10px 30px -10px rgba(0,0,0,0.15)">
+                <form class="search-form" onsubmit="return false">
+                  <div class="form-row">
+                    <label class="form-label"><span class="form-num">1</span>크루즈 목적지</label>
+                    <div class="form-input">
+                      <span>All Destinations</span>
+                      <span class="form-input-icon">⌕</span>
+                    </div>
+                  </div>
+                  <div class="form-row-split">
+                    <div class="form-row">
+                      <label class="form-label"><span class="form-num">2</span>크루즈 선사</label>
+                      <div class="form-input">
+                        <span>모든 크루즈 선사</span>
+                        <span class="form-input-icon">⌄</span>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <label class="form-label"><span class="form-num">3</span>출발일</label>
+                      <div class="form-input">
+                        <span>출발일 선택</span>
+                        <span class="form-input-icon">▦</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mock-click" style="position:relative;border-radius:10px">
+                    <span class="mock-click-tag">CLICK</span>
+                    <div class="form-submit">검색</div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- 크루즈 추천 시기 표 (펼침 버튼) -->
+          <button class="panel-sub-btn" data-toggle="season-2">
+            <span>📅 크루즈 추천 시기 보기</span>
+            <span class="panel-sub-arrow">▼</span>
+          </button>
+          <div class="panel-sub-content" id="season-2">
+            <div class="season-list">
+              <div class="season-card">
+                <div class="season-card-row">
+                  <span class="season-dot" style="background:#E53935"></span>
+                  <span class="season-name">지중해</span>
+                  <span class="season-period">4 ~ 10월</span>
+                </div>
+                <div class="season-note">5-6월·9-10월이 가성비. 7-8월은 성수기로 가장 비싸요.</div>
+              </div>
+              <div class="season-card">
+                <div class="season-card-row">
+                  <span class="season-dot" style="background:#039BE5"></span>
+                  <span class="season-name">카리브해</span>
+                  <span class="season-period">11 ~ 4월</span>
+                </div>
+                <div class="season-note">5-10월은 허리케인 시즌이라 피하는 게 좋아요.</div>
+              </div>
+              <div class="season-card">
+                <div class="season-card-row">
+                  <span class="season-dot" style="background:#00897B"></span>
+                  <span class="season-name">알래스카</span>
+                  <span class="season-period">5 ~ 9월</span>
+                </div>
+                <div class="season-note">6-7월에 빙하·야생동물·백야가 절정.</div>
+              </div>
+              <div class="season-card">
+                <div class="season-card-row">
+                  <span class="season-dot" style="background:#8E24AA"></span>
+                  <span class="season-name">북유럽</span>
+                  <span class="season-period">6 ~ 8월</span>
+                </div>
+                <div class="season-note">백야 시즌. 노르웨이 피오르드는 7월이 가장 좋아요.</div>
+              </div>
+              <div class="season-card">
+                <div class="season-card-row">
+                  <span class="season-dot" style="background:#FB8C00"></span>
+                  <span class="season-name">아시아</span>
+                  <span class="season-period">3-5월 · 9-11월</span>
+                </div>
+                <div class="season-note">6-8월은 우기·태풍 시즌이라 일정 변경 가능성 있어요.</div>
+              </div>
+              <div class="season-card">
+                <div class="season-card-row">
+                  <span class="season-dot" style="background:#43A047"></span>
+                  <span class="season-name">호주/뉴질랜드</span>
+                  <span class="season-period">11 ~ 3월</span>
+                </div>
+                <div class="season-note">남반구라 한국 겨울이 현지 여름이에요.</div>
+              </div>
+            </div>
+          
+            <button class="panel-back-btn" type="button" data-back="season-2">
+              <span class="panel-back-btn-arrow">←</span> 뒤로가기
+            </button>
+          </div>
+
+          <h4 class="metro-panel-subtitle">3. 상품 선택하고 예약 시작</h4>
+<p class="metro-panel-desc">
+            검색 결과에 나오는 각 카드가 <strong>하나의 크루즈 상품</strong>이에요. 마음에 드는 카드를 클릭하면 상세 페이지로 이동합니다.
+          </p>
+
+          <!-- 상품 카드 mock -->
+          <div class="product-card" style="margin-top:18px">
+            <div class="product-image">
+              <svg class="product-ship-icon" viewBox="0 0 24 24" fill="currentColor" width="100" height="100">
+                <path d="M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zM3.95 19H4c1.6 0 3.02-.88 4-2 .98 1.12 2.4 2 4 2s3.02-.88 4-2c.98 1.12 2.4 2 4 2h.05l1.89-6.68c.08-.26.06-.54-.06-.78s-.34-.42-.6-.5L20 10.62V6c0-1.1-.9-2-2-2h-3V1H9v3H6c-1.1 0-2 .9-2 2v4.62l-1.29.42c-.26.08-.48.26-.6.5s-.15.52-.06.78L3.95 19zM6 6h12v3.97L12 8 6 9.97V6z"/>
+              </svg>
+              <div class="product-heart">♡</div>
+              <div class="product-rating">★★★★<span class="empty">★</span></div>
+            </div>
+            <div class="product-body">
+              <div class="product-line">OOO Cruises</div>
+              <div class="product-title">OOO Mediterranean Route</div>
+              <div class="product-meta">
+                <div class="product-meta-row"><span class="product-meta-icon">⛴</span>OOO 선박</div>
+                <div class="product-meta-row"><span class="product-meta-icon">◉</span>출발지 · 도착지</div>
+                <div class="product-meta-row"><span class="product-meta-icon">☾</span>O박</div>
+                <div class="product-meta-row"><span class="product-meta-icon">▦</span>YYYY-MM-DD → YYYY-MM-DD</div>
+              </div>
+              <div class="product-price">
+                <span class="product-price-label">예)</span>
+                <span class="product-price-amount">$900</span>
+                <span class="product-price-unit">/인당</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Book Cruise CTA + 인원 입력 -->
+          <div class="book-cruise-cta">
+            <button class="book-cruise-btn" type="button">
+              <span>Book Cruise</span>
+              <span class="book-cruise-arrow">→</span>
+            </button>
+          </div>
+
+          <div class="mock" style="margin-top:14px">
+            <div class="mock-body">
+              <div class="quick-label">8 중 1단계 · 승객 확인</div>
+              <div style="height:6px;background:var(--ivory);border-radius:3px;margin-bottom:20px;overflow:hidden">
+                <div style="width:12.5%;height:100%;background:var(--gold);border-radius:3px"></div>
+              </div>
+              <div style="margin-bottom:12px">
+                <div class="stepper-row">
+                  <div>
+                    <div class="stepper-label">성인</div>
+                    <div class="stepper-sub">18세 – 54세</div>
+                  </div>
+                  <div class="stepper-control">
+                    <button class="stepper-btn">−</button>
+                    <span class="stepper-count">2</span>
+                    <button class="stepper-btn">+</button>
+                  </div>
+                </div>
+                <div class="stepper-row">
+                  <div>
+                    <div class="stepper-label">어린이</div>
+                    <div class="stepper-sub">0세 – 17세</div>
+                  </div>
+                  <div class="stepper-control">
+                    <button class="stepper-btn">−</button>
+                    <span class="stepper-count">0</span>
+                    <button class="stepper-btn">+</button>
+                  </div>
+                </div>
+                <div class="stepper-row">
+                  <div>
+                    <div class="stepper-label">고령자</div>
+                    <div class="stepper-sub">55세 이상</div>
+                  </div>
+                  <div class="stepper-control">
+                    <button class="stepper-btn">−</button>
+                    <span class="stepper-count">0</span>
+                    <button class="stepper-btn">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box box-info" style="margin-top:14px">
+            <div class="box-title">연령 기준</div>
+            <div class="box-body">
+              <ul>
+                <li><strong>성인</strong> 18–54세</li>
+                <li><strong>어린이</strong> 0–17세</li>
+                <li><strong>고령자</strong> 55세 이상 (할인 혜택 있음)</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4 class="metro-panel-subtitle">카드에서 체크할 5가지</h4>
+          <div class="box box-info" style="margin-top:0">
+            <div class="box-body">
+              <ul>
+                <li><strong>별점</strong> — 선사·선박 등급 (4개 이상 추천)</li>
+                <li><strong>선박명</strong> — 크기·시설 정보 알려줘요</li>
+                <li><strong>출발·도착 항구</strong> — 항공편 접근성 고려</li>
+                <li><strong>O박</strong> — 일정 길이 (7박이 일반적)</li>
+                <li><strong>예) $900/인당</strong> — 2인 기준 1인 최저가</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 항로 지도 펼침 -->
+          <button class="panel-sub-btn" data-toggle="route-3">
+            <span>📍 항로 한눈에 보기</span>
+            <span class="panel-sub-arrow">▼</span>
+          </button>
+          <div class="panel-sub-content" id="route-3">
+            <p class="metro-panel-desc">
+              크루즈는 <strong>여러 항구를 순서대로 방문</strong>해요. 각 항구마다 1일 관광이 가능하고, 사전 투어 예약이 효율적이에요.
+            </p>
+            <div class="mock">
+              <div class="mock-body">
+                <div class="quick-label">항로 지도 · 예시</div>
+                <div class="map-wrap">
+                  <svg class="map-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <pattern id="wavePat3" x="0" y="0" width="20" height="14" patternUnits="userSpaceOnUse">
+                        <path d="M0 7 Q5 3 10 7 T20 7" fill="none" stroke="#5BA8C7" stroke-width="0.5" opacity="0.25"/>
+                      </pattern>
+                    </defs>
+                    <rect width="400" height="300" fill="url(#wavePat3)"/>
+                    <path d="M 20 80 Q 60 60 100 90 L 140 70 L 180 100 L 160 140 L 100 150 Z" fill="#F4E7C1" opacity="0.6" stroke="#D4A94A" stroke-width="1"/>
+                    <path d="M 200 180 Q 250 160 300 180 L 340 200 L 320 230 L 240 240 L 200 220 Z" fill="#F4E7C1" opacity="0.6" stroke="#D4A94A" stroke-width="1"/>
+                    <path d="M 280 50 L 330 40 L 370 70 L 360 100 L 310 110 L 280 90 Z" fill="#F4E7C1" opacity="0.6" stroke="#D4A94A" stroke-width="1"/>
+                    <path d="M 100 130 Q 180 80, 240 120 Q 310 150, 340 90 Q 290 200, 250 220 Q 150 220, 100 130"
+                          fill="none" stroke="#D4A94A" stroke-width="2.5" stroke-dasharray="6 4" stroke-linecap="round">
+                      <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.5s" repeatCount="indefinite"/>
+                    </path>
+                    <g font-family="'Cormorant Garamond', serif" font-size="11" fill="#1B3A5C" font-weight="600">
+                      <circle cx="100" cy="130" r="6" fill="#1B3A5C"/>
+                      <circle cx="100" cy="130" r="3" fill="#D4A94A"/>
+                      <text x="110" y="128">1. 출발지</text>
+                      <circle cx="240" cy="120" r="5" fill="#1B3A5C"/>
+                      <text x="220" y="108">2. 기항 A</text>
+                      <circle cx="340" cy="90" r="5" fill="#1B3A5C"/>
+                      <text x="290" y="80">3. 기항 B</text>
+                      <circle cx="310" cy="180" r="5" fill="#1B3A5C"/>
+                      <text x="315" y="180">4. 기항 C</text>
+                      <circle cx="250" cy="220" r="5" fill="#1B3A5C"/>
+                      <text x="260" y="235">5. 도착지</text>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          
+            <button class="panel-back-btn" type="button" data-back="route-3">
+              <span class="panel-back-btn-arrow">←</span> 뒤로가기
+            </button>
+          </div>
+
+          <!-- 일정표 펼침 -->
+          <button class="panel-sub-btn" data-toggle="itinerary-3">
+            <span>📋 일정표 확인 방법</span>
+            <span class="panel-sub-arrow">▼</span>
+          </button>
+          <div class="panel-sub-content" id="itinerary-3">
+            <p class="metro-panel-desc">
+              항구마다 <strong>도착·출발 시간</strong>이 정해져 있어요. 이 시간을 놓치면 <strong>배는 기다려주지 않아요.</strong>
+            </p>
+            <div class="box box-warn">
+              <div class="box-title"><span class="badge">IMPORTANT</span> 승선일 (첫날)</div>
+              <div class="box-body">
+                <ul>
+                  <li>"도착 시간" 말고 <strong>"출발 시간" 기준</strong>으로 계산</li>
+                  <li>출발 <strong>2시간 전까지 탑승</strong> 필수 (공항처럼 출국 절차 있음)</li>
+                  <li>가능하면 전날·2~3일 전 현지 도착 → 관광 후 탑승</li>
+                </ul>
+              </div>
+            </div>
+            <div class="box box-alert">
+              <div class="box-title"><span class="badge">CAUTION</span> 하선일 (마지막날)</div>
+              <div class="box-body">
+                <ul>
+                  <li>도착 시간에 <strong>바로 내릴 수 없을 수도</strong> 있어요</li>
+                  <li>스위트룸이 먼저, 이후 일반 객실 순차 하선</li>
+                  <li><strong>저녁 비행기로 예약</strong>하는 게 안전해요</li>
+                </ul>
+              </div>
+            </div>
+            <div class="mock" style="margin-top:14px">
+              <div class="mock-body">
+                <div class="quick-label">항구별 일정 · 예시</div>
+                <div class="schedule">
+                  <div class="schedule-row header"><span class="schedule-day">Day</span><span>Port</span><span>Arr/Dep</span></div>
+                  <div class="schedule-row"><span class="schedule-day">1</span><div><div class="schedule-port">출발지 항구</div></div><div><div class="schedule-time-row"><span>출발</span><span>PM X:XX</span></div></div></div>
+                  <div class="schedule-row"><span class="schedule-day">2</span><div><div class="schedule-port">기항 A</div></div><div><div class="schedule-time-row"><span>도착</span><span>AM X:XX</span></div><div class="schedule-time-row"><span>출발</span><span>PM X:XX</span></div></div></div>
+                  <div class="schedule-row"><span class="schedule-day">3</span><div><div class="schedule-port">해상일 (Fun Day at Sea)</div></div><div><div class="schedule-time-row" style="color:var(--ink-muted)"><span>항해중</span></div></div></div>
+                  <div class="schedule-row"><span class="schedule-day">4</span><div><div class="schedule-port">기항 B</div></div><div><div class="schedule-time-row"><span>도착</span><span>AM X:XX</span></div><div class="schedule-time-row"><span>출발</span><span>PM X:XX</span></div></div></div>
+                  <div class="schedule-row"><span class="schedule-day">5</span><div><div class="schedule-port">기항 C</div></div><div><div class="schedule-time-row"><span>도착</span><span>AM X:XX</span></div><div class="schedule-time-row"><span>출발</span><span>PM X:XX</span></div></div></div>
+                  <div class="schedule-row"><span class="schedule-day">6</span><div><div class="schedule-port">도착지 항구</div></div><div><div class="schedule-time-row"><span>도착</span><span>AM X:XX</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          
+            <button class="panel-back-btn" type="button" data-back="itinerary-3">
+              <span class="panel-back-btn-arrow">←</span> 뒤로가기
+            </button>
+          </div>
+
+          <!-- 선박 정보 펼침 -->
+          <button class="panel-sub-btn" data-toggle="ship-3">
+            <span>⛴ 선박 정보 확인</span>
+            <span class="panel-sub-arrow">▼</span>
+          </button>
+          <div class="panel-sub-content" id="ship-3">
+            <p class="metro-panel-desc">
+              선박마다 <strong>크기·시설·분위기</strong>가 달라요. 가족용 대형선부터 성인 전용 럭셔리까지 종류가 다양해요.
+            </p>
+            <div class="box box-warn">
+              <div class="box-title">📷 선박 정보가 궁금하다면</div>
+              <div class="box-body">
+                선박 정보가 궁금하신 분은 <strong>캡쳐 후 지원요청 또는 챗GPT</strong>에게 문의해 보세요.
+              </div>
+            </div>
+          
+            <button class="panel-back-btn" type="button" data-back="ship-3">
+              <span class="panel-back-btn-arrow">←</span> 뒤로가기
+            </button>
+          </div>
+        </div>
       </div>
-      <span class="metro-arrow" aria-hidden="true">→</span>
-    </div>
-  </button>
 
-  <button class="metro-station" data-step="2" aria-label="2단계: 목적지">
-    <div class="metro-circle">2</div>
-    <div class="metro-card">
-      <div class="metro-text">
-        <div class="metro-en">Destination</div>
-        <div class="metro-ko">목적지</div>
+      <button class="metro-station" data-step="2" aria-label="2단계: 객실선택" aria-expanded="false">
+        <div class="metro-circle">2</div>
+        <div class="metro-card">
+          <div class="metro-text">
+            <div class="metro-en">Cabin</div>
+            <div class="metro-ko">객실선택</div>
+          </div>
+          <span class="metro-arrow" aria-hidden="true">→</span>
+        </div>
+      </button>
+
+      <div class="metro-panel" data-panel="2">
+        <div class="metro-panel-inner">
+          <p class="metro-panel-desc">
+            크루즈 객실은 네 등급으로 나뉘어요. 등급에 따라 <strong>가격 차이가 2배 이상</strong>. 예산과 선호에 맞춰 골라보세요.
+          </p>
+
+          <h4 class="metro-panel-subtitle">원하는 타입을 직접 선택할 수 있어요</h4>
+
+          <div class="cabin-image-grid">
+            <div class="cabin-image-card">
+              <div class="cabin-image-area" data-type="inside">
+                <span class="cabin-image-icon">🛏️</span>
+              </div>
+              <div class="cabin-image-label">
+                <div class="cabin-image-name"><span class="cabin-image-name-emoji">🪟</span>인사이드</div>
+                <div class="cabin-image-desc">창문 없음 · 가장 합리적</div>
+              </div>
+            </div>
+
+            <div class="cabin-image-card">
+              <div class="cabin-image-area" data-type="oceanview">
+                <span class="cabin-image-icon">🪟</span>
+              </div>
+              <div class="cabin-image-label">
+                <div class="cabin-image-name"><span class="cabin-image-name-emoji">🌊</span>오션뷰</div>
+                <div class="cabin-image-desc">바다 창문 · 중간</div>
+              </div>
+            </div>
+
+            <div class="cabin-image-card">
+              <span class="cabin-popular-tag">인기</span>
+              <div class="cabin-image-area" data-type="terrace">
+                <span class="cabin-image-icon">⛱️</span>
+              </div>
+              <div class="cabin-image-label">
+                <div class="cabin-image-name"><span class="cabin-image-name-emoji">🏖️</span>발코니</div>
+                <div class="cabin-image-desc">개인 발코니 · 인기 No.1</div>
+              </div>
+            </div>
+
+            <div class="cabin-image-card featured">
+              <div class="cabin-image-area" data-type="suite">
+                <span class="cabin-image-icon">🥂</span>
+              </div>
+              <div class="cabin-image-label">
+                <div class="cabin-image-name"><span class="cabin-image-name-emoji">👑</span>스위트</div>
+                <div class="cabin-image-desc">럭셔리 · 프리미엄</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box box-warn" style="margin-top:18px">
+            <div class="box-title"><span class="badge">BEST</span> 발코니 추천</div>
+            <div class="box-body">
+              바다를 보며 커피 한 잔, 일출·일몰을 전용 공간에서 즐길 수 있어요. 크루즈의 낭만은 발코니에서 완성됩니다.
+            </div>
+          </div>
+          <div class="box box-info">
+            <div class="box-title">초저가 팁</div>
+            <div class="box-body">
+              창문 없어도 괜찮다면 <strong>인사이드</strong>가 가장 저렴. 객실은 잠만 자고, 바다는 갑판에서 보면 됩니다.
+            </div>
+          </div>
+
+        </div>
       </div>
-      <span class="metro-arrow" aria-hidden="true">→</span>
-    </div>
-  </button>
 
-  <button class="metro-station" data-step="3" aria-label="3단계: 크루즈선택">
-    <div class="metro-circle">3</div>
-    <div class="metro-card">
-      <div class="metro-text">
-        <div class="metro-en">Cruise</div>
-        <div class="metro-ko">크루즈선택</div>
+      <button class="metro-station" data-step="3" aria-label="3단계: 층 선택" aria-expanded="false">
+        <div class="metro-circle">3</div>
+        <div class="metro-card">
+          <div class="metro-text">
+            <div class="metro-en">Deck</div>
+            <div class="metro-ko">층 선택</div>
+          </div>
+          <span class="metro-arrow" aria-hidden="true">→</span>
+        </div>
+      </button>
+
+      <div class="metro-panel" data-panel="3">
+        <div class="metro-panel-inner">
+          <p class="metro-panel-desc">
+            객실 타입을 골랐다면 <strong>몇 층(Deck) 어느 방</strong>인지 고를 수 있어요. <strong>Lift 근처</strong>가 동선이 편해요.
+          </p>
+
+          <h4 class="metro-panel-subtitle">데크와 객실 번호 직접 선택</h4>
+          <div class="mock" style="margin-top:14px">
+            <div class="mock-body">
+              <div class="quick-label">8 중 3단계 · 객실 선택</div>
+              <div style="height:6px;background:var(--ivory);border-radius:3px;margin-bottom:18px;overflow:hidden">
+                <div style="width:37.5%;height:100%;background:var(--gold);border-radius:3px"></div>
+              </div>
+
+              <div class="form-row">
+                <label class="form-label"><span style="color:var(--alert-ink)">*</span> 데크</label>
+                <div class="form-input">
+                  <span>Deck 10 - Caribe</span>
+                  <span class="form-input-icon">⌄</span>
+                </div>
+              </div>
+
+              <div class="form-row" style="margin-bottom:0">
+                <label class="form-label"><span style="color:var(--alert-ink)">*</span> 객실 번호</label>
+                <div class="form-input">
+                  <span style="color:var(--ink-muted)">객실 선택</span>
+                  <span class="form-input-icon">⌄</span>
+                </div>
+              </div>
+
+              <!-- 객실 평면도 -->
+              <div class="deck-map">
+                <div class="deck-map-header">
+                  <div class="deck-map-header-label even">짝수 (좌)</div>
+                  <div class="deck-map-header-label">복도</div>
+                  <div class="deck-map-header-label odd">홀수 (우)</div>
+                </div>
+                <div class="deck-map-grid">
+                  <div class="cabin-cell even">C300</div>
+                  <div class="corridor-cell"></div>
+                  <div class="cabin-cell odd">C301</div>
+
+                  <div class="cabin-cell even highlight">C302</div>
+                  <div class="lift-cell">🛗 LIFT</div>
+                  <div class="cabin-cell odd highlight">C303</div>
+
+                  <div class="cabin-cell even highlight">C304</div>
+                  <div class="corridor-cell"></div>
+                  <div class="cabin-cell odd highlight">C305</div>
+
+                  <div class="cabin-cell even">C306</div>
+                  <div class="corridor-cell"></div>
+                  <div class="cabin-cell odd">C307</div>
+
+                  <div class="cabin-cell even">C308</div>
+                  <div class="corridor-cell"></div>
+                  <div class="cabin-cell odd">C309</div>
+
+                  <div class="cabin-cell even">C310</div>
+                  <div class="corridor-cell"></div>
+                  <div class="cabin-cell odd">C311</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box box-info" style="margin-top:14px">
+            <div class="box-title">🛗 Lift(엘리베이터) 근처 추천</div>
+            <div class="box-body">
+              크루즈에서는 이동이 잦아요. <strong>Lift 근처 객실</strong>이 동선이 편합니다. 끝쪽 객실은 매번 한참 걸어야 해요.
+            </div>
+          </div>
+          <div class="box box-warn">
+            <div class="box-title">👥 옆방 같이 하실 분이라면</div>
+            <div class="box-body">
+              객실 번호는 <strong>홀수·짝수가 양쪽으로 나뉘어</strong> 있어요. 옆방을 같이 쓰려면 <strong>202·204호</strong>처럼 같은 쪽 번호로 골라야 해요. (203호는 반대편이라 옆방이 아니에요)
+            </div>
+          </div>
+        </div>
       </div>
-      <span class="metro-arrow" aria-hidden="true">→</span>
-    </div>
-  </button>
 
-  <button class="metro-station" data-step="4" aria-label="4단계: 객실선택">
-    <div class="metro-circle">4</div>
-    <div class="metro-card">
-      <div class="metro-text">
-        <div class="metro-en">Cabin</div>
-        <div class="metro-ko">객실선택</div>
+      <button class="metro-station" data-step="4" aria-label="4단계: 리워드할인" aria-expanded="false">
+        <div class="metro-circle">4</div>
+        <div class="metro-card">
+          <div class="metro-text">
+            <div class="metro-en">Rewards</div>
+            <div class="metro-ko">리워드할인</div>
+          </div>
+          <span class="metro-arrow" aria-hidden="true">→</span>
+        </div>
+      </button>
+
+      <div class="metro-panel" data-panel="4">
+        <div class="metro-panel-inner">
+          <p class="metro-panel-desc">
+            예약 유형 3가지 중 선택해요. <strong>객실가 $3,000 기준</strong>으로 어떻게 결제하느냐에 따라 본인 부담금이 달라져요.
+          </p>
+
+          <h4 class="metro-panel-subtitle">4. 예약 유형 선택</h4>
+
+          <!-- mock 1: 8 중 4단계 - 멤버 및 포인트 구성 -->
+          <div class="mock" style="margin-top:14px">
+            <div class="mock-body">
+              <div class="quick-label">8 중 4단계 · 멤버 및 포인트 구성</div>
+              <div style="height:6px;background:var(--ivory);border-radius:3px;margin-bottom:18px;overflow:hidden">
+                <div style="width:50%;height:100%;background:#FF8C42;border-radius:3px"></div>
+              </div>
+              <div style="font-family:'GmarketSansMedium', var(--font-body);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:14px;letter-spacing:-0.02em">
+                예약 유형을 선택하세요
+              </div>
+
+              <div class="reward-option-card">
+                <div class="reward-option-label">INsider Pricing으로</div>
+                <div class="reward-option-price">예) $2,490</div>
+                <div class="reward-option-note">소매가 <strong>17% 차감</strong> · 할인된 가격으로 예약</div>
+                <div class="reward-option-extra">ⓘ 무제한 사용 가능</div>
+              </div>
+
+              <div class="reward-option-card highlighted">
+                <div class="reward-option-label">리워드 포인트로</div>
+                <div class="reward-option-price">최대 1,500 RP</div>
+                <div class="reward-option-note">$1,500 본인 부담</div>
+                <div class="reward-option-extra">보유 중인 Reward Points로 소매 가격 절감</div>
+              </div>
+
+              <div class="reward-option-card">
+                <div class="reward-option-label">소매가</div>
+                <div class="reward-option-price">예) $3,000</div>
+                <div class="reward-option-note">소매가 그대로 예약</div>
+              </div>
+            </div>
+          </div>
+
+          <h4 class="metro-panel-subtitle">리워드 포인트로 결제 시</h4>
+          <p class="metro-panel-desc">
+            포인트 사용 방식을 한 번 더 골라요. <strong>All Reward Points</strong>를 고르면 가장 많이 절감돼요.
+          </p>
+
+          <!-- mock 2: 포인트 결제 옵션 (All Reward Points만) -->
+          <div class="mock" style="margin-top:14px">
+            <div class="mock-body">
+              <div class="reward-pp-card active">
+                <div class="reward-pp-label">All Reward Points · 활성화</div>
+                <div class="reward-pp-amount">4,500 RP</div>
+                <div class="reward-pp-sub">50% 절감 + 추가 RP 변환 (2 pts = $1)</div>
+                <div class="reward-pp-balance">11,211.59 RP 사용 가능</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 안내 펼침: 무엇을 골라야 할지 모르시겠어요? -->
+          <button class="panel-sub-btn" data-toggle="rewards-help-3">
+            <span>💡 무엇을 골라야 할지 모르시겠어요?</span>
+            <span class="panel-sub-arrow">▼</span>
+          </button>
+          <div class="panel-sub-content" id="rewards-help-3">
+            <p class="metro-panel-desc" style="margin-bottom:14px">
+              리워드를 활용해 크루즈를 예약하는 방식은 크게 <strong>두 가지</strong>예요.
+            </p>
+
+            <!-- 방법 1: 올 리워드 결제 -->
+            <div class="guide-method guide-method-1">
+              <div class="guide-method-header">
+                <span class="guide-method-tag">방법 1</span>
+                <span class="guide-method-title">올 리워드 결제 <span class="guide-method-en">All Reward Point</span></span>
+              </div>
+
+              <div class="guide-step">
+                <div class="guide-step-num">1</div>
+                <div class="guide-step-body">
+                  총 객실가의 <strong>50%</strong><br>
+                  <span class="guide-step-arrow">→</span> <strong>리워드 달러</strong>로 차감
+                  <div><span class="guide-rp-tag">1 RP = $1</span></div>
+                </div>
+              </div>
+
+              <div class="guide-step">
+                <div class="guide-step-num">2</div>
+                <div class="guide-step-body">
+                  나머지 <strong>50%</strong><br>
+                  <span class="guide-step-arrow">→</span> <strong>2 RP = $1</strong> 기준으로 포인트 결제
+                </div>
+              </div>
+
+              <div class="guide-example">
+                <div class="guide-example-title">📌 예시 — $1,800 객실</div>
+                <div class="guide-example-row">
+                  <div class="guide-example-label">① 50% 리워드 달러 차감 <span class="guide-rp-tag">1 RP = $1</span></div>
+                  <div class="guide-example-value">$900 (900 RP)</div>
+                </div>
+                <div class="guide-example-row">
+                  <div class="guide-example-label">② 나머지 $900 → 포인트 결제 <span class="guide-rp-tag rp2">2 RP = $1</span></div>
+                  <div class="guide-example-value">1,800 RP</div>
+                </div>
+                <div class="guide-example-total">
+                  <div class="guide-example-total-label">총 사용 리워드</div>
+                  <div class="guide-example-total-value">2,700 RP → 전액 결제 ✓</div>
+                </div>
+              </div>
+
+              <div class="guide-method-bottom">
+                💳 현금 없이 리워드만으로 완전 결제 가능
+              </div>
+
+              <!-- 타이밍 안내 -->
+              <div class="guide-tip-box">
+                <div class="guide-tip-box-title">💡 크루즈 예약 타이밍을 아시나요?</div>
+                크루즈는 원래 <strong>1년 반 ~ 2년 전부터</strong> 예약이 가능해요.<br>
+                일찍 예약할수록 ✓ <strong>가격이 더 저렴</strong>하고<br>
+                ✓ <strong>원하는 객실 선택폭</strong>이 넓어요.<br>
+                실제로 평균 <strong>7개월 ~ 18개월 전</strong>에 예약한다고 해요.<br><br>
+                👉 <strong>270일(약 9개월) 이후 출발 상품</strong>부터 적용 가능<br>
+                리워드를 쌓으면서 <strong>미리 예약</strong>하는 것이 크루즈 여행의 정석!
+              </div>
+
+              <div class="guide-flow-box">
+                <div class="guide-flow-title">흐름</div>
+                <div class="guide-flow-item">
+                  <div class="guide-flow-num">1</div>
+                  <div>멤버십 유지하며 리워드 적립</div>
+                </div>
+                <div class="guide-flow-item">
+                  <div class="guide-flow-num">2</div>
+                  <div><strong>출발일 270일 이후 상품</strong> 선택<br><span style="color:var(--ink-muted);font-size:11.5px">지금 기준 약 9개월 뒤 출발 크루즈부터 가능</span></div>
+                </div>
+                <div class="guide-flow-item">
+                  <div class="guide-flow-num">3</div>
+                  <div>리워드만으로 크루즈 전액 예약 🎉</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 방법 2: 리워드 + 카드 혼합 결제 -->
+            <div class="guide-method guide-method-2">
+              <div class="guide-method-header">
+                <span class="guide-method-tag">방법 2</span>
+                <span class="guide-method-title">리워드 + 카드 혼합 결제</span>
+              </div>
+
+              <div class="guide-step">
+                <div class="guide-step-num">1</div>
+                <div class="guide-step-body">
+                  총 객실가의 <strong>50%</strong><br>
+                  <span class="guide-step-arrow">→</span> <strong>리워드</strong>로 결제
+                  <div><span class="guide-rp-tag">1 RP = $1</span></div>
+                </div>
+              </div>
+
+              <div class="guide-step">
+                <div class="guide-step-num">2</div>
+                <div class="guide-step-body">
+                  나머지 <strong>50%</strong><br>
+                  <span class="guide-step-arrow">→</span> <strong>카드</strong>로 결제
+                </div>
+              </div>
+
+              <div style="background:rgba(255,255,255,0.85);border-radius:10px;padding:14px;margin-top:12px">
+                <div style="font-size:12.5px;color:var(--navy);line-height:1.65;margin-bottom:10px">
+                  크루즈 객실은 <strong>2인 1실 기준</strong>이에요.<br>
+                  객실가의 <strong>50%는 내 자리</strong>,<br>
+                  나머지 <strong>50%는 동반자 자리</strong>입니다.
+                </div>
+                <div class="guide-share-card">
+                  <span class="guide-share-emoji">🙋</span>
+                  <div class="guide-share-body">
+                    <div class="guide-share-title">내 자리 50%</div>
+                    <span class="guide-step-arrow">→</span> 리워드로 결제 = <strong>사실상 무료</strong>
+                  </div>
+                </div>
+                <div class="guide-share-card">
+                  <span class="guide-share-emoji">👬</span>
+                  <div class="guide-share-body">
+                    <div class="guide-share-title">동반자 자리 50%</div>
+                    <span class="guide-step-arrow">→</span> 카드로 결제
+                  </div>
+                </div>
+                <div class="guide-share-summary">
+                  📌 즉, <strong>본인 여행비는 0원</strong><br>
+                  동반자 비용만 카드로 추가 결제하면 됩니다.
+                </div>
+              </div>
+            </div>
+
+            <!-- 연속 예약 안내 -->
+            <div class="guide-cont-box">
+              <div class="guide-cont-title">🔄 연속으로 크루즈 예약도 가능해요</div>
+              <div class="guide-flow-item">
+                <div class="guide-flow-num green">1</div>
+                <div>멤버십 유지 → 리워드 적립 중</div>
+              </div>
+              <div class="guide-flow-item">
+                <div class="guide-flow-num green">2</div>
+                <div><strong>첫 번째 크루즈</strong> — 방법 1 또는 방법 2로 예약</div>
+              </div>
+              <div class="guide-flow-item">
+                <div class="guide-flow-num green">3</div>
+                <div>탑승 대기 중에도 리워드 계속 적립</div>
+              </div>
+              <div class="guide-flow-item">
+                <div class="guide-flow-num green">4</div>
+                <div><strong>두 번째 크루즈</strong>도 이어서 예약 가능 🎉</div>
+              </div>
+
+              <div class="guide-cont-quote">
+                "한 번 쓰고 끝이 아니라,<br>
+                쌓으면서 다음 여행까지 이어지는 구조"
+              </div>
+
+              <div class="guide-warn-box">
+                <div class="guide-warn-title">※ 예약 시점에 따라 선결제가 적용됩니다</div>
+                · 출발 60일 이전 예약 시: 1회차 선결제<br>
+                · 출발 30일 이전 예약 시: 2회차 선결제
+              </div>
+            </div>
+
+            <!-- 방법 1+2 함께 활용 -->
+            <div class="guide-combo-box">
+              <div class="guide-combo-title">🛳️ 방법 1 + 방법 2, 함께 활용 가능해요</div>
+              <div class="guide-combo-body">
+                두 가지 방법을 상황에 맞게 선택하거나<br>
+                <strong>연속으로 크루즈를 예약</strong>할 수도 있어요.<br>
+                리워드가 쌓일수록 더 유리한 방식을 선택할 수 있습니다.
+              </div>
+            </div>
+
+            <!-- 뒤로가기 버튼 -->
+            <button class="panel-back-btn" type="button" data-back="rewards-help-3">
+              <span class="panel-back-btn-arrow">←</span> 뒤로가기
+            </button>
+          </div>
+
+          <!-- 안내 펼침: 멤버 추가 원하실 때 -->
+          <button class="panel-sub-btn" data-toggle="add-member-3">
+            <span>👥 멤버 추가 원하실 때</span>
+            <span class="panel-sub-arrow">▼</span>
+          </button>
+          <div class="panel-sub-content" id="add-member-3">
+            <div class="box box-info" style="margin-top:0">
+              <div class="box-title">고유번호로 조회</div>
+              <div class="box-body">
+                <strong>고유번호를 넣고 조회</strong>하시면 됩니다. 고유번호는 <strong>백오피스 리워드 버튼</strong>을 누르시면 확인하실 수 있어요!
+              </div>
+            </div>
+            <div class="box box-warn">
+              <div class="box-title">사용 조건</div>
+              <div class="box-body">
+                <strong>리워드 + 카드결제</strong> 선택 시 사용 가능하며, <strong>최대 객실가의 50% 이내</strong>에서 할당된 포인트 차감 가능합니다.
+              </div>
+            </div>
+
+            <button class="panel-back-btn" type="button" data-back="add-member-3">
+              <span class="panel-back-btn-arrow">←</span> 뒤로가기
+            </button>
+          </div>
+        </div>
       </div>
-      <span class="metro-arrow" aria-hidden="true">→</span>
-    </div>
-  </button>
 
-  <button class="metro-station" data-step="5" aria-label="5단계: 리워드할인">
-    <div class="metro-circle">5</div>
-    <div class="metro-card">
-      <div class="metro-text">
-        <div class="metro-en">Rewards</div>
-        <div class="metro-ko">리워드할인</div>
+      <button class="metro-station" data-step="5" aria-label="5단계: 승객입력" aria-expanded="false">
+        <div class="metro-circle">5</div>
+        <div class="metro-card">
+          <div class="metro-text">
+            <div class="metro-en">Passengers</div>
+            <div class="metro-ko">승객입력</div>
+          </div>
+          <span class="metro-arrow" aria-hidden="true">→</span>
+        </div>
+      </button>
+
+      <div class="metro-panel" data-panel="5">
+        <div class="metro-panel-inner">
+          <p class="metro-panel-desc">
+            모든 승객의 <strong>여권 정보를 그대로</strong> 입력해요. 이 단계에서 입력한 정보는 <strong>변경이 거의 불가능</strong>합니다.
+          </p>
+
+          <div class="box box-alert" style="margin-top:14px">
+            <div class="box-title"><span class="badge" style="background:var(--alert-border)">CRITICAL</span> 여권과 동일하게!</div>
+            <div class="box-body">
+              <ul>
+                <li>이름·성 → <strong>여권 영문 그대로</strong> (오타 금지)</li>
+                <li>생년월일 → 여권과 1:1 일치</li>
+                <li><strong>오타시 수정과 변경이 안되오니 신중하게 작성해 주시기 바랍니다.</strong></li>
+                <li>이메일은 예약 확인이 오니까 실제 수신 가능한 주소로</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4 class="metro-panel-subtitle">5. 주요 승객 입력</h4>
+
+          <div class="mock" style="margin-top:14px">
+            <div class="mock-body">
+              <div class="quick-label">8 중 5단계 · 주요 승객</div>
+              <div style="height:6px;background:var(--ivory);border-radius:3px;margin-bottom:18px;overflow:hidden">
+                <div style="width:62.5%;height:100%;background:#FF8C42;border-radius:3px"></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                <div class="form-field">
+                  <label class="form-field-label">이름 (First Name)</label>
+                  <div class="form-field-input">GILDONG</div>
+                </div>
+                <div class="form-field">
+                  <label class="form-field-label">성 (Last Name)</label>
+                  <div class="form-field-input">HONG</div>
+                </div>
+                <div class="form-field">
+                  <label class="form-field-label">성별</label>
+                  <div class="form-field-input">남성 · 여성</div>
+                </div>
+                <div class="form-field">
+                  <label class="form-field-label">생년월일</label>
+                  <div class="form-field-input">YYYY-MM-DD</div>
+                </div>
+                <div class="form-field">
+                  <label class="form-field-label">국적</label>
+                  <div class="form-field-input">Korea, Republic of</div>
+                </div>
+                <div class="form-field">
+                  <label class="form-field-label">전화번호</label>
+                  <div class="form-field-input">+82 · OOO-OOOO-OOOO</div>
+                </div>
+                <div class="form-field" style="grid-column:span 2">
+                  <label class="form-field-label">이메일</label>
+                  <div class="form-field-input">you@example.com</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 주소 입력 안내 + 복사 버튼 -->
+          <div class="copy-box">
+            <div class="copy-box-title">📍 주소 입력 시 참고</div>
+            <div class="copy-box-desc">
+              주소 입력 시 <strong>쉼표( , )나 하이픈( - )</strong>이 들어가면 오류가 나기도 해요. 그냥 아래 <strong>Seoul</strong>로 적어주시면 됩니다.
+            </div>
+            <div class="copy-row">
+              <div class="copy-input" id="copy-text-seoul">Seoul</div>
+              <button class="copy-btn" type="button" data-copy="Seoul" data-target="copy-text-seoul">
+                <span class="copy-btn-icon">📋</span>
+                <span class="copy-btn-label">복사</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <span class="metro-arrow" aria-hidden="true">→</span>
-    </div>
-  </button>
 
-  <button class="metro-station" data-step="6" aria-label="6단계: 승객입력">
-    <div class="metro-circle">6</div>
-    <div class="metro-card">
-      <div class="metro-text">
-        <div class="metro-en">Passengers</div>
-        <div class="metro-ko">승객입력</div>
+      <button class="metro-station" data-step="6" aria-label="7단계: 규정확인" aria-expanded="false">
+        <div class="metro-circle">7</div>
+        <div class="metro-card">
+          <div class="metro-text">
+            <div class="metro-en">Terms</div>
+            <div class="metro-ko">규정확인</div>
+          </div>
+          <span class="metro-arrow" aria-hidden="true">→</span>
+        </div>
+      </button>
+
+      <div class="metro-panel" data-panel="6">
+        <div class="metro-panel-inner">
+          <p class="metro-panel-desc">
+            같은 객실이라도 <strong>포함된 서비스</strong>에 따라 요금이 달라져요. 음료·팁이 포함된 옵션이 편해요.
+          </p>
+
+          <div class="mock" style="margin-top:18px">
+            <div class="mock-body">
+              <div class="quick-label">요금제 · OOO Balcony 객실</div>
+              <div class="fare-card">
+                <div class="fare-left">
+                  <div class="fare-title">Exclusive Cruise Only</div>
+                  <div class="fare-sub">기본 · 팁·음료 별도</div>
+                </div>
+                <div class="fare-price">예) $1,800</div>
+              </div>
+              <div class="fare-card">
+                <div class="fare-left">
+                  <div class="fare-title">+ Drinks</div>
+                  <div class="fare-sub">음료 패키지 포함</div>
+                </div>
+                <div class="fare-price">예) $2,300</div>
+              </div>
+              <div class="fare-card">
+                <div class="fare-left">
+                  <div class="fare-title">+ Gratuities</div>
+                  <div class="fare-sub">팁 포함</div>
+                </div>
+                <div class="fare-price">예) $2,700</div>
+              </div>
+              <div class="fare-card featured">
+                <div class="fare-left">
+                  <div class="fare-title">+ Drinks, Gratuities <span class="badge" style="font-size:9px;padding:2px 6px">BEST</span></div>
+                  <div class="fare-sub">음료 + 팁 모두 포함</div>
+                </div>
+                <div class="fare-price">예) $3,200</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box box-warn" style="margin-top:18px">
+            <div class="box-title"><span class="badge">RECOMMEND</span> 팁 포함 요금제</div>
+            <div class="box-body">
+              크루즈는 <strong>매일 팁</strong>이 부과돼요. 포함 요금제를 고르면 선상에서 따로 결제하지 않아도 되고, 달러 환전 걱정도 없어요.
+            </div>
+          </div>
+
+          <!-- 환불 보호 안내 펼침 -->
+          <button class="panel-sub-btn" data-toggle="protect-5">
+            <span>🛡 환불 보호 · 해제 권장</span>
+            <span class="panel-sub-arrow">▼</span>
+          </button>
+          <div class="panel-sub-content" id="protect-5">
+            <p class="metro-panel-desc">
+              크루즈는 기본적으로 <strong>환불 불가</strong>예요. 추가 보호를 살 수 있지만, <strong>특별한 사정이 없다면 해제</strong>를 권장해요.
+            </p>
+            <div class="mock">
+              <div class="mock-body">
+                <div class="quick-label">환불 보호 · 가입 여부</div>
+                <div class="protect-card off">
+                  <div class="protect-check"></div>
+                  <div class="protect-body">
+                    <div class="protect-title">자기 부담금 보호</div>
+                    <div class="protect-desc">사유 있을 때 본인 부담금 100% 환불. 증빙 필요.</div>
+                  </div>
+                  <div class="protect-price">+$XXX</div>
+                </div>
+                <div class="protect-card off">
+                  <div class="protect-check"></div>
+                  <div class="protect-body">
+                    <div class="protect-title">리워드 포인트 보호</div>
+                    <div class="protect-desc">사용한 포인트 환불 옵션.</div>
+                  </div>
+                  <div class="protect-price">+$XX</div>
+                </div>
+                <div style="padding:14px;background:var(--alert-bg);border-radius:10px;border:1px solid rgba(185, 28, 28, 0.2);margin-top:10px;font-size:12px;color:var(--alert-ink);line-height:1.6">
+                  <strong>⚠ 이 예약은 환불되지 않습니다.</strong> 취소 시 환불 불가.
+                </div>
+              </div>
+            </div>
+            <div class="box box-alert" style="margin-top:14px">
+              <div class="box-title">꼭 알아두세요</div>
+              <div class="box-body">
+                <ul>
+                  <li>환불 요청은 <strong>증빙 서류</strong> 필요 (질병·사고 등)</li>
+                  <li>단순 변심·일정 변경은 <strong>환불 대상 아님</strong></li>
+                  <li>보호 비용이 보험료보다 비쌀 수도 있어요</li>
+                </ul>
+              </div>
+            </div>
+          
+            <button class="panel-back-btn" type="button" data-back="protect-5">
+              <span class="panel-back-btn-arrow">←</span> 뒤로가기
+            </button>
+          </div>
+        </div>
       </div>
-      <span class="metro-arrow" aria-hidden="true">→</span>
-    </div>
-  </button>
 
-  <button class="metro-station" data-step="7" aria-label="7단계: 규정확인">
-    <div class="metro-circle">7</div>
-    <div class="metro-card">
-      <div class="metro-text">
-        <div class="metro-en">Terms</div>
-        <div class="metro-ko">규정확인</div>
+      <button class="metro-station" data-step="7" aria-label="8단계: 결제완료" aria-expanded="false">
+        <div class="metro-circle">8</div>
+        <div class="metro-card">
+          <div class="metro-text">
+            <div class="metro-en">Payment</div>
+            <div class="metro-ko">결제완료</div>
+          </div>
+          <span class="metro-arrow" aria-hidden="true">→</span>
+        </div>
+      </button>
+
+      <div class="metro-panel" data-panel="7">
+        <div class="metro-panel-inner">
+          <p class="metro-panel-desc">
+            마지막 관문. 통화를 잘못 고르면 <strong>환율 수수료로 손해</strong>를 볼 수 있어요.
+          </p>
+
+          <div class="box box-alert" style="margin-top:14px">
+            <div class="box-title"><span class="badge" style="background:var(--alert-border)">USD 선택</span></div>
+            <div class="box-body">
+              통화는 반드시 <strong>USD(달러)</strong>로 결제하세요. KRW 선택 시 <strong>환율 손해</strong>가 있어요.
+            </div>
+          </div>
+          <div class="box box-info">
+            <div class="box-title">결제 카드 요건</div>
+            <div class="box-body">
+              <ul>
+                <li><strong>해외결제 가능한</strong> VISA 또는 MASTER 카드</li>
+                <li>국내 전용 카드는 결제 불가</li>
+                <li>플랫폼 지갑으로도 결제 가능</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mock" style="margin-top:18px">
+            <div class="mock-body">
+              <div class="quick-label">결제 통화</div>
+              <div class="currency-grid">
+                <div class="currency-tile active">🇺🇸 USD</div>
+                <div class="currency-tile">🇪🇺 EUR</div>
+                <div class="currency-tile">🇬🇧 GBP</div>
+                <div class="currency-tile">🇯🇵 JPY</div>
+              </div>
+              <div style="background:var(--ivory);padding:12px 14px;border-radius:10px;font-size:12px;color:var(--ink-muted);margin-bottom:8px">
+                ⚠ 잘못된 통화 선택 시 환율 손해 발생
+              </div>
+              <div class="card-preview">
+                <div class="card-chip"></div>
+                <div class="card-number">•••• •••• •••• XXXX</div>
+                <div class="card-bottom">
+                  <div><span class="card-bottom-label">CARDHOLDER</span>YOUR NAME</div>
+                  <div><span class="card-bottom-label">EXPIRES</span>MM/YY</div>
+                </div>
+              </div>
+              <div style="text-align:right;margin-top:14px;font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--navy)">
+                예) USD $1,800.00
+              </div>
+            </div>
+          </div>
+
+          <!-- 예약 완료 후 체크리스트 펼침 -->
+          <button class="panel-sub-btn" data-toggle="after-6">
+            <span>✓ 예약 완료 후 체크리스트</span>
+            <span class="panel-sub-arrow">▼</span>
+          </button>
+          <div class="panel-sub-content" id="after-6">
+            <p class="metro-panel-desc">
+              결제가 끝났다고 끝이 아니에요. <strong>웹체크인까지 해야</strong> 진짜 완성돼요.
+            </p>
+            <div class="box box-alert">
+              <div class="box-title">웹체크인 필수</div>
+              <div class="box-body">
+                <strong>모든 크루즈 선사</strong>가 온라인 웹체크인을 요구해요. 안 하면 <strong>탑승 거부</strong>될 수 있어요.
+              </div>
+            </div>
+            <div class="complete-card" style="margin-top:14px">
+              <div class="complete-check">✓</div>
+              <div class="complete-title">예약 완료</div>
+              <div class="complete-sub">멋진 크루즈 여정이 시작됩니다</div>
+              <div class="complete-steps">
+                <div class="complete-step">
+                  <div class="complete-step-num">1</div>
+                  <div class="complete-step-text"><strong>예약증 확인</strong> — 우측 상단 ☰ → 크루즈 → 예약 탭</div>
+                </div>
+                <div class="complete-step">
+                  <div class="complete-step-num">2</div>
+                  <div class="complete-step-text"><strong>출발 1개월~2주 전</strong> — 선사 홈페이지에서 웹체크인</div>
+                </div>
+                <div class="complete-step">
+                  <div class="complete-step-num">3</div>
+                  <div class="complete-step-text"><strong>필요서류 인쇄</strong> — 크루즈 예약증 + 짐태그</div>
+                </div>
+                <div class="complete-step">
+                  <div class="complete-step-num">4</div>
+                  <div class="complete-step-text"><strong>터미널 도착</strong> — 출발 2시간 전까지</div>
+                </div>
+              </div>
+            </div>
+            <div class="box box-ok" style="margin-top:14px">
+              <div class="box-title">마지막 체크리스트</div>
+              <div class="box-body">
+                <ul>
+                  <li>여권 유효기간 <strong>6개월 이상</strong> 남았는지</li>
+                  <li>비자 필요한 국가 여부</li>
+                  <li>짐태그 <strong>인쇄해서 준비</strong></li>
+                  <li>의무 팁(약 $15-18/일) 선상 결제 대비</li>
+                </ul>
+              </div>
+            </div>
+          
+            <button class="panel-back-btn" type="button" data-back="after-6">
+              <span class="panel-back-btn-arrow">←</span> 뒤로가기
+            </button>
+          </div>
+        </div>
       </div>
-      <span class="metro-arrow" aria-hidden="true">→</span>
-    </div>
-  </button>
 
-  <button class="metro-station" data-step="8" aria-label="8단계: 결제완료">
-    <div class="metro-circle">8</div>
-    <div class="metro-card">
-      <div class="metro-text">
-        <div class="metro-en">Payment</div>
-        <div class="metro-ko">결제완료</div>
+      <span class="metro-end-dot end" aria-hidden="true"></span>
+    </div>
+
+    <div class="metro-tip-row">
+      <button class="metro-tip-btn" id="metro-tip-btn" type="button" aria-expanded="false">
+        <span>📌 추가 안내사항</span>
+        <span class="tip-arrow" aria-hidden="true">▼</span>
+      </button>
+      <div class="tip-panel" id="tip-panel">
+        <div class="tip-panel-inner">
+          <div class="tip-panel-title">크루즈 시작 전 꼭 보세요 🎬</div>
+          <div class="video-btn-list">
+            <a class="video-btn" href="#" target="_blank" rel="noopener" data-video="board">
+              <span class="video-btn-icon">▶</span>
+              <span class="video-btn-body">
+                크루즈 탑승 전 필수영상
+                <span class="video-btn-sub">출항 전 꼭 시청해야 할 안내</span>
+              </span>
+              <span class="video-btn-arrow">→</span>
+            </a>
+            <a class="video-btn" href="#" target="_blank" rel="noopener" data-video="member">
+              <span class="video-btn-icon">▶</span>
+              <span class="video-btn-body">
+                크루즈 멤버십 안내 필수영상
+                <span class="video-btn-sub">멤버십 기본 안내</span>
+              </span>
+              <span class="video-btn-arrow">→</span>
+            </a>
+          </div>
+        </div>
       </div>
-      <span class="metro-arrow" aria-hidden="true">→</span>
     </div>
-  </button>
-
-  <span class="metro-end-dot end" aria-hidden="true"></span>
-</div>
-
-<div class="metro-tip-row">
-  <button class="metro-tip-btn" id="metro-tip-btn">📌 추가 안내사항</button>
-</div>
-```
-
   </div>
 </section>
 
 <!-- ============ CTA ============ -->
-
 <section class="cta">
   <div class="cta-inner">
     <div class="cta-overline">Ready to sail?</div>
@@ -1549,21 +3639,140 @@
 </footer>
 
 <script>
-  // Metro station click - placeholder for future guide content
+  // Metro station click handler
   document.querySelectorAll('.metro-station').forEach(btn => {
     btn.addEventListener('click', () => {
       const step = btn.dataset.step;
-      showToast(step + '단계 가이드 곧 공개됩니다 ✨');
+      const panel = document.querySelector('.metro-panel[data-panel="' + step + '"]');
+
+      if (panel) {
+        // Toggle panel
+        const isOpen = panel.classList.contains('open');
+        if (isOpen) {
+          panel.classList.remove('open');
+          btn.classList.remove('expanded');
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
+          panel.classList.add('open');
+          btn.classList.add('expanded');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      } else {
+        // No content yet — show toast
+        showToast(step + '단계 가이드 곧 공개됩니다 ✨');
+      }
     });
   });
 
-  // Tip button
+  // Sub-button toggle (e.g. 크루즈 추천 시기)
+  document.querySelectorAll('.panel-sub-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const targetId = btn.dataset.toggle;
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      const isOpen = target.classList.contains('open');
+      if (isOpen) {
+        target.classList.remove('open');
+        btn.classList.remove('open');
+      } else {
+        target.classList.add('open');
+        btn.classList.add('open');
+      }
+    });
+  });
+
+  // Back button inside expanded panel content
+  document.querySelectorAll('.panel-back-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const targetId = btn.dataset.back;
+      const target = document.getElementById(targetId);
+      const trigger = document.querySelector(`.panel-sub-btn[data-toggle="${targetId}"]`);
+      if (target) target.classList.remove('open');
+      if (trigger) {
+        trigger.classList.remove('open');
+        // Smooth scroll back to the sub-button
+        trigger.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+
+  // Copy button (e.g. Seoul address)
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const text = btn.dataset.copy;
+      const label = btn.querySelector('.copy-btn-label');
+      const icon = btn.querySelector('.copy-btn-icon');
+      const originalLabel = label ? label.textContent : '복사';
+      const originalIcon = icon ? icon.textContent : '📋';
+
+      const showCopied = () => {
+        btn.classList.add('copied');
+        if (icon) icon.textContent = '✓';
+        if (label) label.textContent = '복사됨';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          if (icon) icon.textContent = originalIcon;
+          if (label) label.textContent = originalLabel;
+        }, 1500);
+      };
+
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          showCopied();
+        } else {
+          // Fallback: use a temporary textarea
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand('copy');
+            showCopied();
+          } catch (_) {
+            showToast('복사에 실패했어요. 직접 복사해 주세요.');
+          }
+          document.body.removeChild(ta);
+        }
+      } catch (err) {
+        showToast('복사에 실패했어요. 직접 복사해 주세요.');
+      }
+    });
+  });
+
+  // Tip button — toggle 추가 안내사항 panel
   const tipBtn = document.getElementById('metro-tip-btn');
-  if (tipBtn) {
+  const tipPanel = document.getElementById('tip-panel');
+  if (tipBtn && tipPanel) {
     tipBtn.addEventListener('click', () => {
-      showToast('안내사항 준비중입니다');
+      const isOpen = tipPanel.classList.contains('open');
+      if (isOpen) {
+        tipPanel.classList.remove('open');
+        tipBtn.classList.remove('open');
+        tipBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        tipPanel.classList.add('open');
+        tipBtn.classList.add('open');
+        tipBtn.setAttribute('aria-expanded', 'true');
+      }
     });
   }
+
+  // Video links inside tip panel — show toast if URL not yet set
+  document.querySelectorAll('.video-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const href = btn.getAttribute('href');
+      if (!href || href === '#') {
+        e.preventDefault();
+        showToast('영상 링크가 곧 추가됩니다 🎬');
+      }
+    });
+  });
 
   // Toast helper
   function showToast(msg) {
