@@ -323,10 +323,10 @@
   .metro-rail::before{
     content:'';
     position:absolute;
-    left:38px;
+    left:30px;
     top:50px;
     bottom:50px;
-    width:5px;
+    width:4px;
     background:linear-gradient(180deg,
       var(--santorini) 0%,
       var(--santorini-deep) 50%,
@@ -336,20 +336,20 @@
   }
   .metro-end-dot{
     position:absolute;
-    left:31px;
-    width:19px;height:19px;
+    left:24px;
+    width:16px;height:16px;
     border-radius:50%;
     background:var(--santorini-deep);
-    box-shadow:0 0 0 6px rgba(135, 206, 235, 0.22);
+    box-shadow:0 0 0 5px rgba(135, 206, 235, 0.22);
     z-index:1;
   }
-  .metro-end-dot.start{top:38px}
-  .metro-end-dot.end{bottom:38px}
+  .metro-end-dot.start{top:42px}
+  .metro-end-dot.end{bottom:42px}
   .metro-station{
     position:relative;
     display:flex;
     align-items:center;
-    gap:20px;
+    gap:18px;
     padding:11px 0;
     text-decoration:none;
     z-index:2;
@@ -362,16 +362,16 @@
   }
   .metro-circle{
     flex-shrink:0;
-    width:78px;height:78px;
+    width:62px;height:62px;
     border-radius:50%;
     background:white;
-    border:5px solid var(--santorini-deep);
+    border:4px solid var(--santorini-deep);
     display:flex;align-items:center;justify-content:center;
     font-family:var(--font-display);
-    font-size:32px;font-weight:700;
+    font-size:24px;font-weight:700;
     color:var(--navy);
     position:relative;z-index:2;
-    box-shadow:0 6px 18px -6px rgba(27, 58, 92, 0.28);
+    box-shadow:0 5px 14px -5px rgba(27, 58, 92, 0.28);
     transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .metro-station:hover .metro-circle,
@@ -386,7 +386,7 @@
     flex:1;
     min-width:0;
     background:white;
-    padding:18px 22px;
+    padding:18px 24px;
     border-radius:14px;
     border:1.5px solid var(--line);
     box-shadow:0 2px 10px -3px rgba(27, 58, 92, 0.06);
@@ -395,7 +395,7 @@
     justify-content:space-between;
     gap:14px;
     transition:all 0.25s ease;
-    min-height:60px;
+    min-height:62px;
   }
   .metro-station:hover .metro-card,
   .metro-station:focus-visible .metro-card{
@@ -564,36 +564,38 @@
     .video-btn-body{font-size:12.5px}
   }
   @media (max-width:520px){
-    .metro{padding:60px 16px 80px}
+    .metro{padding:60px 14px 80px}
     .metro-header{margin-bottom:44px}
     .metro-rail::before{
-      left:30px;
+      left:24px;
       top:42px;
       bottom:42px;
       width:4px;
     }
-    .metro-end-dot{left:24px;width:16px;height:16px}
-    .metro-end-dot.start{top:32px}
-    .metro-end-dot.end{bottom:32px}
+    .metro-end-dot{left:18px;width:14px;height:14px}
+    .metro-end-dot.start{top:34px}
+    .metro-end-dot.end{bottom:34px}
     .metro-circle{
-      width:64px;height:64px;
+      width:50px;height:50px;
       border-width:4px;
-      font-size:25px;
+      font-size:19px;
     }
     .metro-card{
-      padding:13px 15px;
-      min-height:54px;
+      padding:14px 16px;
+      min-height:52px;
     }
-    .metro-station{gap:14px;padding:9px 0}
-    .metro-ko{font-size:15.5px}
+    .metro-station{gap:12px;padding:9px 0}
+    .metro-ko{font-size:16px}
     .metro-en{font-size:9.5px}
     .metro-arrow{font-size:17px}
   }
   @media (max-width:360px){
-    .metro-rail::before{left:26px}
-    .metro-end-dot{left:21px}
-    .metro-circle{width:56px;height:56px;font-size:22px;border-width:4px}
-    .metro-ko{font-size:14.5px}
+    .metro-rail::before{left:21px}
+    .metro-end-dot{left:16px}
+    .metro-circle{width:44px;height:44px;font-size:17px;border-width:3px}
+    .metro-card{padding:12px 14px}
+    .metro-station{gap:10px}
+    .metro-ko{font-size:15px}
   }
 
   /* ======================= METRO PANEL (expandable) ======================= */
@@ -694,7 +696,7 @@
     transition:max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
   }
   .panel-sub-content.open{
-    max-height:1500px;
+    /* max-height set dynamically via JS to scrollHeight to prevent content cut-off */
     opacity:1;
     margin-top:12px;
   }
@@ -1087,6 +1089,83 @@
     border-top:1px dashed var(--line);
     margin-top:6px;
     letter-spacing:-0.01em;
+  }
+
+  /* All Reward Points 예시 박스 */
+  .all-rp-example{
+    margin-top:14px;
+    background:linear-gradient(180deg, #FFF5E6 0%, #FFEBC8 100%);
+    border:1.5px solid #FFB347;
+    border-radius:14px;
+    padding:16px 18px;
+    box-shadow:0 4px 14px -6px rgba(255,140,0,0.22);
+  }
+  .all-rp-example-title{
+    font-size:13.5px;
+    font-weight:700;
+    color:#8B5A1A;
+    margin-bottom:14px;
+    letter-spacing:-0.02em;
+  }
+  .all-rp-example-step{
+    display:flex;
+    gap:11px;
+    align-items:flex-start;
+    background:rgba(255,255,255,0.7);
+    border-radius:10px;
+    padding:11px 13px;
+    margin-bottom:8px;
+  }
+  .all-rp-step-num{
+    width:22px;height:22px;
+    background:#D4651A;
+    color:white;
+    font-size:12px;font-weight:700;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    margin-top:1px;
+  }
+  .all-rp-step-body{
+    flex:1;
+    font-size:12.5px;
+    line-height:1.5;
+    color:var(--navy);
+  }
+  .all-rp-step-tag{
+    display:inline-block;
+    background:linear-gradient(135deg, #FFE9A8, #FFD56A);
+    border:1.5px solid #E8B432;
+    color:#8B5A1A;
+    font-size:11px;
+    font-weight:700;
+    padding:3px 10px;
+    border-radius:999px;
+    margin-top:5px;
+    letter-spacing:-0.01em;
+  }
+  .all-rp-step-tag.rp2{
+    background:linear-gradient(135deg, var(--navy), var(--navy-deep));
+    border-color:var(--navy);
+    color:white;
+  }
+  .all-rp-example-total{
+    margin-top:8px;
+    padding:11px 13px;
+    background:rgba(255,255,255,0.92);
+    border:1.5px dashed #D4651A;
+    border-radius:10px;
+    text-align:center;
+    font-size:13px;
+    color:var(--navy);
+    line-height:1.4;
+  }
+  .all-rp-example-total strong{color:#D4651A;font-size:14px}
+
+  @media (max-width:360px){
+    .all-rp-example{padding:14px 14px}
+    .all-rp-example-step{padding:10px 11px;gap:9px}
+    .all-rp-step-body{font-size:12px}
   }
 
   /* Payment method guide (안내 펼침 안) */
@@ -2155,7 +2234,7 @@
     border-radius:12px;padding:18px;margin-bottom:10px;
     display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
   }
-  .protect-card.off{opacity:0.55}
+  .protect-card.off{opacity:0.85}
   .protect-check{
     width:22px;height:22px;border-radius:50%;
     border:2px solid var(--line-strong);
@@ -2173,7 +2252,7 @@
   }
   .protect-body{flex:1}
   .protect-title{font-weight:700;color:var(--navy);font-size:14px;margin-bottom:4px}
-  .protect-desc{font-size:12px;color:var(--ink-muted);line-height:1.6}
+  .protect-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.6}
   .protect-price{
     font-family:var(--font-display);
     font-weight:600;color:var(--alert-ink);font-size:16px;
@@ -2623,7 +2702,7 @@
               </div>
               <div class="product-price">
                 <span class="product-price-label">예)</span>
-                <span class="product-price-amount">$900</span>
+                <span class="product-price-amount">$1,500</span>
                 <span class="product-price-unit">/인당</span>
               </div>
             </div>
@@ -2700,7 +2779,7 @@
                 <li><strong>선박명</strong> — 크기·시설 정보 알려줘요</li>
                 <li><strong>출발·도착 항구</strong> — 항공편 접근성 고려</li>
                 <li><strong>O박</strong> — 일정 길이 (7박이 일반적)</li>
-                <li><strong>예) $900/인당</strong> — 2인 기준 1인 최저가</li>
+                <li><strong>예) $1,500/인당</strong> — 2인 기준 1인 최저가</li>
               </ul>
             </div>
           </div>
@@ -3031,14 +3110,14 @@
                 <div class="reward-option-label">INsider Pricing으로</div>
                 <div class="reward-option-price">예) $2,490</div>
                 <div class="reward-option-note">소매가 <strong>17% 차감</strong> · 할인된 가격으로 예약</div>
-                <div class="reward-option-extra">ⓘ 무제한 사용 가능</div>
+                <div class="reward-option-extra">ⓘ 스타터-연 2회 / 클래식-연 5회 / 프리미엄-무제한 사용 가능</div>
               </div>
 
               <div class="reward-option-card highlighted">
                 <div class="reward-option-label">리워드 포인트로</div>
                 <div class="reward-option-price">최대 1,500 RP</div>
                 <div class="reward-option-note">$1,500 본인 부담</div>
-                <div class="reward-option-extra">보유 중인 Reward Points로 소매 가격 절감</div>
+                <div class="reward-option-extra">보유 중인 Reward Points로 <strong>객실가의 최대 50%까지</strong> 가격 절감</div>
               </div>
 
               <div class="reward-option-card">
@@ -3060,9 +3139,31 @@
               <div class="reward-pp-card active">
                 <div class="reward-pp-label">All Reward Points · 활성화</div>
                 <div class="reward-pp-amount">4,500 RP</div>
-                <div class="reward-pp-sub">50% 절감 + 추가 RP 변환 (2 pts = $1)</div>
+                <div class="reward-pp-sub">50% 절감 + 추가 RP 변환 (<strong>2 RP = $1</strong> 기준 적용)</div>
                 <div class="reward-pp-balance">11,211.59 RP 사용 가능</div>
               </div>
+            </div>
+          </div>
+
+          <!-- All Reward Points 사용 예시 -->
+          <div class="all-rp-example">
+            <div class="all-rp-example-title">📌 예) $3,000 객실 예약 시</div>
+            <div class="all-rp-example-step">
+              <span class="all-rp-step-num">1</span>
+              <div class="all-rp-step-body">
+                객실가의 50% — <strong>1,500 RP</strong> 사용
+                <div class="all-rp-step-tag">1 RP = $1</div>
+              </div>
+            </div>
+            <div class="all-rp-example-step">
+              <span class="all-rp-step-num">2</span>
+              <div class="all-rp-step-body">
+                나머지 $1,500 결제 → <strong>3,000 RP</strong> 사용
+                <div class="all-rp-step-tag rp2">2 RP = $1</div>
+              </div>
+            </div>
+            <div class="all-rp-example-total">
+              총 <strong>4,500 RP</strong>로 올 리워드 예약 가능 ✓
             </div>
           </div>
 
@@ -3101,18 +3202,18 @@
               </div>
 
               <div class="guide-example">
-                <div class="guide-example-title">📌 예시 — $1,800 객실</div>
+                <div class="guide-example-title">📌 예시 — $3,000 객실</div>
                 <div class="guide-example-row">
                   <div class="guide-example-label">① 50% 리워드 달러 차감 <span class="guide-rp-tag">1 RP = $1</span></div>
-                  <div class="guide-example-value">$900 (900 RP)</div>
+                  <div class="guide-example-value">$1,500 (1,500 RP)</div>
                 </div>
                 <div class="guide-example-row">
-                  <div class="guide-example-label">② 나머지 $900 → 포인트 결제 <span class="guide-rp-tag rp2">2 RP = $1</span></div>
-                  <div class="guide-example-value">1,800 RP</div>
+                  <div class="guide-example-label">② 나머지 $1,500 → 포인트 결제 <span class="guide-rp-tag rp2">2 RP = $1</span></div>
+                  <div class="guide-example-value">3,000 RP</div>
                 </div>
                 <div class="guide-example-total">
                   <div class="guide-example-total-label">총 사용 리워드</div>
-                  <div class="guide-example-total-value">2,700 RP → 전액 결제 ✓</div>
+                  <div class="guide-example-total-value">4,500 RP → 전액 결제 ✓</div>
                 </div>
               </div>
 
@@ -3226,8 +3327,8 @@
 
               <div class="guide-warn-box">
                 <div class="guide-warn-title">※ 예약 시점에 따라 선결제가 적용됩니다</div>
-                · 출발 60일 이전 예약 시: 1회차 선결제<br>
-                · 출발 30일 이전 예약 시: 2회차 선결제
+                · 출발 60일 이후 예약 시: 1회차 선결제<br>
+                · 출발 30일 이후 예약 시: 2회차 선결제
               </div>
             </div>
 
@@ -3373,98 +3474,43 @@
 
       <div class="metro-panel" data-panel="6">
         <div class="metro-panel-inner">
+          <h4 class="metro-panel-subtitle">🛡 환불 보호 · 해제 권장</h4>
           <p class="metro-panel-desc">
-            같은 객실이라도 <strong>포함된 서비스</strong>에 따라 요금이 달라져요. 음료·팁이 포함된 옵션이 편해요.
+            크루즈는 기본적으로 <strong>환불 불가</strong>예요. 추가 보호를 살 수 있지만, <strong>특별한 사정이 없다면 해제</strong>를 권장해요.
           </p>
-
-          <div class="mock" style="margin-top:18px">
+          <div class="mock" style="margin-top:14px">
             <div class="mock-body">
-              <div class="quick-label">요금제 · OOO Balcony 객실</div>
-              <div class="fare-card">
-                <div class="fare-left">
-                  <div class="fare-title">Exclusive Cruise Only</div>
-                  <div class="fare-sub">기본 · 팁·음료 별도</div>
+              <div class="quick-label">환불 보호 · 가입 여부</div>
+              <div class="protect-card off">
+                <div class="protect-check"></div>
+                <div class="protect-body">
+                  <div class="protect-title">자기 부담금 보호</div>
+                  <div class="protect-desc">사유 있을 때 본인 부담금 100% 환불. 증빙 필요.</div>
                 </div>
-                <div class="fare-price">예) $1,800</div>
+                <div class="protect-price">+$XXX</div>
               </div>
-              <div class="fare-card">
-                <div class="fare-left">
-                  <div class="fare-title">+ Drinks</div>
-                  <div class="fare-sub">음료 패키지 포함</div>
+              <div class="protect-card off">
+                <div class="protect-check"></div>
+                <div class="protect-body">
+                  <div class="protect-title">리워드 포인트 보호</div>
+                  <div class="protect-desc">사용한 포인트 환불 옵션.</div>
                 </div>
-                <div class="fare-price">예) $2,300</div>
+                <div class="protect-price">+$XX</div>
               </div>
-              <div class="fare-card">
-                <div class="fare-left">
-                  <div class="fare-title">+ Gratuities</div>
-                  <div class="fare-sub">팁 포함</div>
-                </div>
-                <div class="fare-price">예) $2,700</div>
-              </div>
-              <div class="fare-card featured">
-                <div class="fare-left">
-                  <div class="fare-title">+ Drinks, Gratuities <span class="badge" style="font-size:9px;padding:2px 6px">BEST</span></div>
-                  <div class="fare-sub">음료 + 팁 모두 포함</div>
-                </div>
-                <div class="fare-price">예) $3,200</div>
+              <div style="padding:14px;background:var(--alert-bg);border-radius:10px;border:1px solid rgba(185, 28, 28, 0.2);margin-top:10px;font-size:12px;color:var(--alert-ink);line-height:1.6">
+                <strong>⚠ 이 예약은 환불되지 않습니다.</strong> 취소 시 환불 불가.
               </div>
             </div>
           </div>
-
-          <div class="box box-warn" style="margin-top:18px">
-            <div class="box-title"><span class="badge">RECOMMEND</span> 팁 포함 요금제</div>
+          <div class="box box-alert" style="margin-top:14px">
+            <div class="box-title">꼭 알아두세요</div>
             <div class="box-body">
-              크루즈는 <strong>매일 팁</strong>이 부과돼요. 포함 요금제를 고르면 선상에서 따로 결제하지 않아도 되고, 달러 환전 걱정도 없어요.
+              <ul>
+                <li>환불 요청은 <strong>증빙 서류</strong> 필요 (질병·사고 등)</li>
+                <li>단순 변심·일정 변경은 <strong>환불 대상 아님</strong></li>
+                <li>보호 비용이 보험료보다 비쌀 수도 있어요</li>
+              </ul>
             </div>
-          </div>
-
-          <!-- 환불 보호 안내 펼침 -->
-          <button class="panel-sub-btn" data-toggle="protect-5">
-            <span>🛡 환불 보호 · 해제 권장</span>
-            <span class="panel-sub-arrow">▼</span>
-          </button>
-          <div class="panel-sub-content" id="protect-5">
-            <p class="metro-panel-desc">
-              크루즈는 기본적으로 <strong>환불 불가</strong>예요. 추가 보호를 살 수 있지만, <strong>특별한 사정이 없다면 해제</strong>를 권장해요.
-            </p>
-            <div class="mock">
-              <div class="mock-body">
-                <div class="quick-label">환불 보호 · 가입 여부</div>
-                <div class="protect-card off">
-                  <div class="protect-check"></div>
-                  <div class="protect-body">
-                    <div class="protect-title">자기 부담금 보호</div>
-                    <div class="protect-desc">사유 있을 때 본인 부담금 100% 환불. 증빙 필요.</div>
-                  </div>
-                  <div class="protect-price">+$XXX</div>
-                </div>
-                <div class="protect-card off">
-                  <div class="protect-check"></div>
-                  <div class="protect-body">
-                    <div class="protect-title">리워드 포인트 보호</div>
-                    <div class="protect-desc">사용한 포인트 환불 옵션.</div>
-                  </div>
-                  <div class="protect-price">+$XX</div>
-                </div>
-                <div style="padding:14px;background:var(--alert-bg);border-radius:10px;border:1px solid rgba(185, 28, 28, 0.2);margin-top:10px;font-size:12px;color:var(--alert-ink);line-height:1.6">
-                  <strong>⚠ 이 예약은 환불되지 않습니다.</strong> 취소 시 환불 불가.
-                </div>
-              </div>
-            </div>
-            <div class="box box-alert" style="margin-top:14px">
-              <div class="box-title">꼭 알아두세요</div>
-              <div class="box-body">
-                <ul>
-                  <li>환불 요청은 <strong>증빙 서류</strong> 필요 (질병·사고 등)</li>
-                  <li>단순 변심·일정 변경은 <strong>환불 대상 아님</strong></li>
-                  <li>보호 비용이 보험료보다 비쌀 수도 있어요</li>
-                </ul>
-              </div>
-            </div>
-          
-            <button class="panel-back-btn" type="button" data-back="protect-5">
-              <span class="panel-back-btn-arrow">←</span> 뒤로가기
-            </button>
           </div>
         </div>
       </div>
@@ -3524,7 +3570,7 @@
                 </div>
               </div>
               <div style="text-align:right;margin-top:14px;font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--navy)">
-                예) USD $1,800.00
+                예) USD $3,000.00
               </div>
             </div>
           </div>
@@ -3598,18 +3644,18 @@
         <div class="tip-panel-inner">
           <div class="tip-panel-title">크루즈 시작 전 꼭 보세요 🎬</div>
           <div class="video-btn-list">
-            <a class="video-btn" href="#" target="_blank" rel="noopener" data-video="board">
+            <a class="video-btn" href="https://youtu.be/_Auk9Q2-vC8?si=xKrjjR1R8bwk9X21" target="_blank" rel="noopener" data-video="board">
               <span class="video-btn-icon">▶</span>
               <span class="video-btn-body">
-                크루즈 탑승 전 필수영상
+                크루즈 탑승 전 이것만은 알고가기
                 <span class="video-btn-sub">출항 전 꼭 시청해야 할 안내</span>
               </span>
               <span class="video-btn-arrow">→</span>
             </a>
-            <a class="video-btn" href="#" target="_blank" rel="noopener" data-video="member">
+            <a class="video-btn" href="https://youtu.be/xOodUATanks" target="_blank" rel="noopener" data-video="member">
               <span class="video-btn-icon">▶</span>
               <span class="video-btn-body">
-                크루즈 멤버십 안내 필수영상
+                크루즈 멤버십, 이거 모르면 손해봐요!
                 <span class="video-btn-sub">멤버십 기본 안내</span>
               </span>
               <span class="video-btn-arrow">→</span>
@@ -3673,11 +3719,27 @@
       if (!target) return;
       const isOpen = target.classList.contains('open');
       if (isOpen) {
+        // Close: set current height first so transition has a starting value, then collapse to 0
+        target.style.maxHeight = target.scrollHeight + 'px';
+        // Force reflow
+        target.offsetHeight;
+        target.style.maxHeight = '0px';
         target.classList.remove('open');
         btn.classList.remove('open');
       } else {
+        // Open: measure full content height and animate to it (no cut-off)
         target.classList.add('open');
         btn.classList.add('open');
+        target.style.maxHeight = target.scrollHeight + 'px';
+        // After transition, remove inline max-height so content can resize naturally
+        const onEnd = (ev) => {
+          if (ev.propertyName !== 'max-height') return;
+          if (target.classList.contains('open')) {
+            target.style.maxHeight = 'none';
+          }
+          target.removeEventListener('transitionend', onEnd);
+        };
+        target.addEventListener('transitionend', onEnd);
       }
     });
   });
@@ -3689,7 +3751,13 @@
       const targetId = btn.dataset.back;
       const target = document.getElementById(targetId);
       const trigger = document.querySelector(`.panel-sub-btn[data-toggle="${targetId}"]`);
-      if (target) target.classList.remove('open');
+      if (target) {
+        // Set explicit height before collapsing so transition works
+        target.style.maxHeight = target.scrollHeight + 'px';
+        target.offsetHeight; // force reflow
+        target.style.maxHeight = '0px';
+        target.classList.remove('open');
+      }
       if (trigger) {
         trigger.classList.remove('open');
         // Smooth scroll back to the sub-button
