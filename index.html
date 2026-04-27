@@ -3835,5 +3835,27 @@
   }
 </script>
 
+<!-- 🔙 스마트 뒤로가기 버튼 -->
+<a href="https://kbellalee4808-star.github.io/cruiseclub_hub/" id="smartBackBtn" style="position:fixed;top:16px;left:16px;z-index:9999;display:inline-flex;align-items:center;gap:6px;background:rgba(26,58,107,0.95);color:#fff;padding:10px 16px;border-radius:24px;text-decoration:none;font-size:13px;font-weight:600;font-family:'Noto Sans KR',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,0.25);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all 0.2s;touch-action:manipulation;">
+  <span style="font-size:16px;">←</span> 크루즈 클럽
+</a>
+
+<script>
+(function() {
+  var btn = document.getElementById('smartBackBtn');
+  if (!btn) return;
+  
+  var ref = document.referrer;
+  
+  if (ref && ref.indexOf('cruiseclub_hub') !== -1) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.history.back();
+    });
+  }
+})();
+</script>
+
+  
 </body>
 </html>
