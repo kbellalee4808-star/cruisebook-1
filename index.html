@@ -696,7 +696,7 @@
     transition:max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
   }
   .panel-sub-content.open{
-    /* max-height set dynamically via JS to scrollHeight to prevent content cut-off */
+    max-height:1500px;
     opacity:1;
     margin-top:12px;
   }
@@ -3327,8 +3327,8 @@
 
               <div class="guide-warn-box">
                 <div class="guide-warn-title">※ 예약 시점에 따라 선결제가 적용됩니다</div>
-                · 출발 60일 이후 예약 시: 1회차 선결제<br>
-                · 출발 30일 이후 예약 시: 2회차 선결제
+                · 출발 60일 이전 예약 시: 1회차 선결제<br>
+                · 출발 30일 이전 예약 시: 2회차 선결제
               </div>
             </div>
 
@@ -3476,7 +3476,7 @@
         <div class="metro-panel-inner">
           <h4 class="metro-panel-subtitle">🛡 환불 보호 · 해제 권장</h4>
           <p class="metro-panel-desc">
-            크루즈는 기본적으로 <strong>환불 불가</strong>예요. 추가 보호를 살 수 있지만, <strong>특별한 사정이 없다면 해제</strong>를 권장해요.
+            크루즈는 기본적으로 <strong>환불 불가</strong>예요. 추가 보호를 선택하실 수 있지만 <strong>60일 이전 유효사유 증빙</strong>이 가능해야 보호를 받으실 수 있어요.
           </p>
           <div class="mock" style="margin-top:14px">
             <div class="mock-body">
@@ -3719,27 +3719,11 @@
       if (!target) return;
       const isOpen = target.classList.contains('open');
       if (isOpen) {
-        // Close: set current height first so transition has a starting value, then collapse to 0
-        target.style.maxHeight = target.scrollHeight + 'px';
-        // Force reflow
-        target.offsetHeight;
-        target.style.maxHeight = '0px';
         target.classList.remove('open');
         btn.classList.remove('open');
       } else {
-        // Open: measure full content height and animate to it (no cut-off)
         target.classList.add('open');
         btn.classList.add('open');
-        target.style.maxHeight = target.scrollHeight + 'px';
-        // After transition, remove inline max-height so content can resize naturally
-        const onEnd = (ev) => {
-          if (ev.propertyName !== 'max-height') return;
-          if (target.classList.contains('open')) {
-            target.style.maxHeight = 'none';
-          }
-          target.removeEventListener('transitionend', onEnd);
-        };
-        target.addEventListener('transitionend', onEnd);
       }
     });
   });
@@ -3751,13 +3735,7 @@
       const targetId = btn.dataset.back;
       const target = document.getElementById(targetId);
       const trigger = document.querySelector(`.panel-sub-btn[data-toggle="${targetId}"]`);
-      if (target) {
-        // Set explicit height before collapsing so transition works
-        target.style.maxHeight = target.scrollHeight + 'px';
-        target.offsetHeight; // force reflow
-        target.style.maxHeight = '0px';
-        target.classList.remove('open');
-      }
+      if (target) target.classList.remove('open');
       if (trigger) {
         trigger.classList.remove('open');
         // Smooth scroll back to the sub-button
