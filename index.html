@@ -2464,6 +2464,9 @@
     transform:scale(1.5);
   }
 
+  /* 펼친 단계는 왼쪽 타임라인 여백 없이 화면 전체 사용 */
+  .metro-panel,.metro-panel.open{padding-left:0!important}
+  @media (max-width:520px){.metro-panel-inner{padding:20px 14px}}
 </style>
 </head>
 <body>
@@ -3112,6 +3115,9 @@
               <div style="font-family:'GmarketSansMedium', var(--font-body);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:14px;letter-spacing:-0.02em">
                 예약 유형을 선택하세요
               </div>
+              <div style="font-size:13.5px;line-height:1.65;color:var(--ink-soft);background:#FFF6EE;border:1px solid #FFD9BD;border-radius:10px;padding:10px 12px;margin:-4px 0 14px;word-break:keep-all">
+                💡 참고로 <strong style="color:var(--navy)">셋 중 하나를 선택</strong>하시면 됩니다. <strong style="color:#E07020">올 리워드 예약</strong>을 원하실 때는 <strong style="color:#E07020">리워드 포인트</strong>를 선택하시면 됩니다.
+              </div>
 
               <div class="reward-option-card">
                 <div class="reward-option-label">INsider Pricing으로</div>
@@ -3365,6 +3371,9 @@
               <div class="box-title">고유번호로 조회</div>
               <div class="box-body">
                 <strong>고유번호를 넣고 조회</strong>하시면 됩니다. 고유번호는 <strong>백오피스 리워드 버튼</strong>을 누르시면 확인하실 수 있어요!
+                <a href="https://kbellalee4808-star.github.io/cruiseclub_hub/#faq-code" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;min-height:48px;padding:10px 14px;border-radius:12px;background:#fff;border:1.5px solid var(--gold);color:var(--navy);font-weight:700;font-size:14px;text-decoration:none">
+                  <span>🔑 멤버십 코드 만드는 법 보기</span><span style="color:var(--gold)">→</span>
+                </a>
               </div>
             </div>
             <div class="box box-warn">
@@ -3587,6 +3596,19 @@
             <span>✓ 예약 완료 후 체크리스트</span>
             <span class="panel-sub-arrow">▼</span>
           </button>
+          <div class="box box-alert" style="margin-top:12px">
+            <div class="box-title">📌 예약 후 꼭 하세요</div>
+            <div class="box-body">
+              <strong>예약번호</strong>는 <strong>크루즈 → 예약 탭</strong>에서 확인할 수 있어요. 예약번호를 <strong>잘 저장</strong>해 두세요.<br><br>
+              선사별 사이트를 <strong>AI에 검색</strong>해서, 보통 <strong>출발 한 달 전</strong> 웹체크인을 하고 <strong>체크인 시간을 지정</strong>하시면 됩니다.
+              <div style="margin-top:12px;padding:10px 12px;border-radius:10px;background:#C0392B;color:#fff;font-weight:800;font-size:15px;line-height:1.6;text-align:center">
+                ⚠️ 웹체크인 필수<br>📱 선사 어플 다운로드 필수
+              </div>
+              <div style="margin-top:10px;padding:10px 12px;border-radius:10px;background:#EAF6EE;border:1px solid #BFE3CB;color:#1f5f3a;font-weight:700;line-height:1.6">
+                ✅ 크루즈 터미널 주소는 <strong style="color:#1f5f3a">구글 제미나이</strong>로 검색 가능 <span style="white-space:nowrap">(하루 전 더블체크 필수)</span>
+              </div>
+            </div>
+          </div>
           <div class="panel-sub-content" id="after-6">
             <p class="metro-panel-desc">
               결제가 끝났다고 끝이 아니에요. <strong>웹체크인까지 해야</strong> 진짜 완성돼요.
@@ -3608,7 +3630,7 @@
                 </div>
                 <div class="complete-step">
                   <div class="complete-step-num">2</div>
-                  <div class="complete-step-text"><strong>출발 1개월~2주 전</strong> — 선사 홈페이지에서 웹체크인</div>
+                  <div class="complete-step-text"><strong>보통 출발 한 달 전</strong> — 선사 홈페이지·어플에서 웹체크인</div>
                 </div>
                 <div class="complete-step">
                   <div class="complete-step-num">3</div>
@@ -3643,11 +3665,11 @@
     </div>
 
     <div class="metro-tip-row">
-      <button class="metro-tip-btn" id="metro-tip-btn" type="button" aria-expanded="false">
+      <button class="metro-tip-btn open" id="metro-tip-btn" type="button" aria-expanded="true">
         <span>📌 추가 안내사항</span>
         <span class="tip-arrow" aria-hidden="true">▼</span>
       </button>
-      <div class="tip-panel" id="tip-panel">
+      <div class="tip-panel open" id="tip-panel">
         <div class="tip-panel-inner">
           <div class="tip-panel-title">크루즈 시작 전 꼭 보세요 🎬</div>
           <div class="video-btn-list">
